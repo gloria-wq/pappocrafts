@@ -1,8 +1,36 @@
 import Link from "next/link";
-import { Hand, Leaf, Palette, Truck, Star, Quote } from "lucide-react";
+import { Star, Quote, ChevronRight } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import SectionHeading from "@/components/SectionHeading";
-import { getFeaturedProducts, getCategories, getArtisans, getRecentReviews } from "@/lib/get-data";
+import {
+  getFeaturedProducts,
+  getCategories,
+  getArtisans,
+  getRecentReviews,
+} from "@/lib/get-data";
+
+const VALUES = [
+  {
+    icon: "✋",
+    title: "100% Handmade",
+    desc: "Fiecare obiect este creat manual de meșteșugari cu experiență.",
+  },
+  {
+    icon: "🌿",
+    title: "Materiale Naturale",
+    desc: "Lemn, cupru, rachită — materii prime curate și locale.",
+  },
+  {
+    icon: "🎨",
+    title: "Personalizare",
+    desc: "Personalizăm obiectele în funcție de nevoile tale unice.",
+  },
+  {
+    icon: "📦",
+    title: "Livrare Rapidă",
+    desc: "Expediere prin curier în 24–48 ore în toată România.",
+  },
+];
 
 export default async function HomePage() {
   const [featured, categories, artisans, reviews] = await Promise.all([
@@ -14,49 +42,68 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-gradient-to-br from-brand-50 via-earth-50 to-brand-100 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-brand-300 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-20 w-96 h-96 bg-brand-200 rounded-full blur-3xl" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
-          <p className="text-sm font-semibold text-brand-600 uppercase tracking-widest mb-4">
-            din inima meșterilor români
-          </p>
-          <h1 className="text-4xl md:text-6xl font-bold text-earth-900 leading-tight max-w-3xl">
-            Meșteșugul tradițional{" "}
-            <span className="text-brand-600">adus în casa ta</span>
+      {/* ─── HERO ─── */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-navy-700">
+        <div className="absolute inset-0 z-0 bg-gradient-to-r from-navy-700/90 via-navy-700/65 to-navy-700/25" />
+        <div className="relative z-10 max-w-[1200px] mx-auto w-full px-7 pt-[120px] pb-20">
+          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-teal-300 block mb-5">
+            ✦ Meșteșug Autentic Românesc
+          </span>
+          <h1 className="text-[clamp(40px,5.5vw,70px)] text-white font-bold leading-[1.08] max-w-[620px] mb-5">
+            Artizanat Românesc{" "}
+            <em className="text-warm-300 not-italic">Reimaginat</em>
           </h1>
-          <p className="mt-6 text-lg text-earth-600 max-w-xl leading-relaxed">
-            Obiecte unice, lucrate manual din materiale naturale. Fiecare produs
-            poartă povestea unui meșter și sufletul tradiției românești autentice.
+          <p className="text-warm-300/80 text-[17px] leading-[1.75] max-w-[480px] mb-10 font-light">
+            Fiecare piesă spune o poveste — de la mâinile meșterului, direct în
+            casa ta. Obiecte unice, create cu dragoste din materiale naturale.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 items-center">
             <Link
               href="/magazin"
-              className="px-8 py-3.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors shadow-lg shadow-brand-600/20"
+              className="inline-flex items-center gap-2 px-[30px] py-[13px] bg-russet-500 text-white font-semibold text-sm rounded-full hover:bg-russet-600 transition-all shadow-[0_6px_20px_rgba(162,110,115,0.3)]"
             >
-              Explorează Magazinul
+              Explorează Colecția
             </Link>
             <Link
               href="/despre-noi"
-              className="px-8 py-3.5 bg-white text-brand-700 font-semibold rounded-xl hover:bg-brand-50 transition-colors border border-brand-200"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-warm-300 transition-colors"
             >
-              Despre Noi
+              Povestea noastră <ChevronRight size={15} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* ─── VALUES BAR ─── */}
+      <section className="bg-navy-700 py-14 border-t border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-7 grid grid-cols-2 lg:grid-cols-4 gap-0">
+          {VALUES.map((v, i) => (
+            <div
+              key={v.title}
+              className={`text-center py-6 px-4 ${
+                i < 3 ? "lg:border-r border-white/[0.06]" : ""
+              }`}
+            >
+              <span className="text-2xl block mb-2">{v.icon}</span>
+              <h3 className="text-[13px] font-bold text-white mb-1.5 font-[var(--font-body)]">
+                {v.title}
+              </h3>
+              <p className="text-[12px] text-warm-300/50 font-light leading-relaxed">
+                {v.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── FEATURED PRODUCTS ─── */}
+      <section className="max-w-[1200px] mx-auto px-7 py-24">
         <SectionHeading
-          eyebrow="Alese pentru tine"
-          title="Produse Vedetă"
-          description="Cele mai apreciate produse din atelierele noastre."
+          eyebrow="✦ Alese pentru tine"
+          title="Favorite din Atelier"
+          description="Piese în care suntem mândri. Fiecare e creată la comandă, cu materiale naturale."
         />
-        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
           {featured.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
@@ -64,179 +111,208 @@ export default async function HomePage() {
         <div className="mt-10 text-center">
           <Link
             href="/magazin"
-            className="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-700"
+            className="inline-flex items-center gap-2 text-navy-700 font-semibold text-sm hover:text-russet-500 transition-colors"
           >
-            Vezi toate produsele &rarr;
+            Vezi toate produsele <ChevronRight size={15} />
           </Link>
         </div>
       </section>
 
-      {/* USP Bar */}
-      <section className="bg-white border-y border-earth-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { icon: Hand, title: "Fabricat Manual", desc: "Fiecare obiect este confecționat manual de meșteri cu experiență" },
-            { icon: Leaf, title: "Materiale Naturale", desc: "Lemn, cupru, rachită, textile — materii prime curate" },
-            { icon: Palette, title: "Personalizare", desc: "Personalizăm obiectele în funcție de nevoile tale" },
-            { icon: Truck, title: "Livrare Rapidă", desc: "Expediere prin curier în 24–48 de ore în toată România" },
-          ].map((usp) => (
-            <div key={usp.title} className="flex flex-col items-center text-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center">
-                <usp.icon size={22} className="text-brand-600" />
-              </div>
-              <h3 className="font-semibold text-earth-800">{usp.title}</h3>
-              <p className="text-sm text-earth-500">{usp.desc}</p>
+      {/* ─── STORY SECTION ─── */}
+      <section className="bg-warm-100 py-24">
+        <div className="max-w-[1200px] mx-auto px-7 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left: image grid with badge */}
+          <div className="relative">
+            <div className="grid grid-cols-2 gap-4 rounded-2xl overflow-hidden">
+              <div className="aspect-[3/4] bg-warm-200 rounded-2xl" />
+              <div className="aspect-[3/4] bg-warm-300/50 rounded-2xl" />
             </div>
-          ))}
+            <div className="absolute -bottom-5 -right-5 bg-russet-500 text-white rounded-2xl px-6 py-5 text-center shadow-[0_12px_40px_rgba(162,110,115,0.4)] z-10">
+              <div className="text-[42px] font-bold leading-none font-[var(--font-heading)]">
+                8+
+              </div>
+              <div className="text-[11px] opacity-85 mt-1 tracking-[0.05em]">
+                Ani de
+                <br />
+                Meșteșug
+              </div>
+            </div>
+          </div>
+
+          {/* Right: text */}
+          <div className="pl-0 lg:pl-4">
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-russet-500 block mb-2.5">
+              ✦ Povestea noastră
+            </span>
+            <h2 className="text-[clamp(26px,3.8vw,42px)] font-bold text-navy-700 leading-[1.15] mb-6">
+              Un studio mic cu
+              <br />
+              <em className="text-russet-500 not-italic">o inimă mare.</em>
+            </h2>
+            <p className="text-navy-500 text-[15px] leading-[1.85] font-light mb-4">
+              PappoCrafts s-a născut dintr-o convingere simplă: meșteșugul
+              tradițional românesc merită să trăiască. Nu în muzee — ci în
+              casele oamenilor, în bucătării, pe mese, în viața de zi cu zi.
+            </p>
+            <p className="text-navy-500 text-[15px] leading-[1.85] font-light mb-8">
+              Folosim materii prime curate: lemn de tei, cupru alimentar cu
+              puritate de 99,97%, răchită naturală. Fiecare obiect a trecut
+              prin mâinile unui meșter — niciodată printr-o fabrică.
+            </p>
+            <div className="flex flex-wrap gap-4 items-center">
+              <Link
+                href="/despre-noi"
+                className="inline-flex items-center gap-2 px-[30px] py-[13px] bg-russet-500 text-white font-semibold text-sm rounded-full hover:bg-russet-600 transition-all shadow-[0_6px_20px_rgba(162,110,115,0.3)]"
+              >
+                Citește povestea
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-700 hover:text-russet-500 transition-colors"
+              >
+                Contactează-ne <ChevronRight size={15} />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* ─── CATEGORIES ─── */}
+      <section className="max-w-[1200px] mx-auto px-7 py-24">
         <SectionHeading
-          eyebrow="Tradiție vie"
-          title="Explorează Produsele Tradiționale Românești"
-          description="Materiale naturale, mâini dibace, meșteșug autentic transmis din generație în generație."
+          eyebrow="✦ Tradiție vie"
+          title="Explorează pe Categorii"
+          description="Materiale naturale, mâini dibace, meșteșug autentic."
         />
         <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {categories.map((cat) => (
             <Link
               key={cat.id}
               href={`/produse/${cat.slug}`}
-              className="group relative bg-white rounded-xl p-6 border border-earth-100 hover:border-brand-200 hover:shadow-md transition-all text-center"
+              className="group bg-white rounded-2xl p-6 border border-warm-300/40 hover:border-russet-300 hover:shadow-lg transition-all text-center"
             >
               <span className="text-3xl block mb-3">{cat.icon ?? "📦"}</span>
-              <h3 className="font-semibold text-earth-800 group-hover:text-brand-600 transition-colors">
+              <h3 className="font-semibold text-navy-700 group-hover:text-russet-500 transition-colors text-sm">
                 {cat.name}
               </h3>
-              <p className="text-xs text-earth-500 mt-1">{cat.description}</p>
+              <p className="text-[12px] text-navy-400 mt-1 font-light">
+                {cat.description}
+              </p>
             </Link>
           ))}
         </div>
-        <div className="mt-10 text-center">
-          <Link
-            href="/produse"
-            className="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-700"
-          >
-            Explorează toate categoriile &rarr;
-          </Link>
-        </div>
       </section>
 
-      {/* About Snippet */}
-      <section className="bg-brand-50/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-2">
-              100% Handmade
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-earth-900">Despre Noi</h2>
-            <p className="mt-6 text-earth-600 leading-relaxed">
-              Readucem meșteșugul tradițional românesc în contemporaneitate.
-              Produsele noastre sunt concepute pentru a satisface nevoile
-              contemporane de reconectare la natură și de protejare a mediului.
-              Folosim materii prime curate și de cea mai bună calitate.
-            </p>
-            <p className="mt-4 text-earth-600 leading-relaxed">
-              Acoperim o gamă largă de materiale: lemn, cupru, argint, alamă,
-              rachită, alun, textile, piele. Suntem promotori ai utilului, ai
-              tradiționalului românesc autentic, ai esteticului.
-            </p>
-            <p className="mt-6 font-medium text-earth-700 italic">
-              — Echipa PappoCrafts
-            </p>
-            <Link
-              href="/despre-noi"
-              className="inline-block mt-6 px-6 py-3 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors"
-            >
-              Citește povestea noastră
-            </Link>
+      {/* ─── ARTISANS ─── */}
+      <section className="bg-warm-100 py-24">
+        <div className="max-w-[1200px] mx-auto px-7">
+          <SectionHeading
+            eyebrow="✦ Mâinile care creează"
+            title="Meșterii Noștri"
+            description="Parteneri, prieteni, oameni care pun suflet în ceea ce fac."
+          />
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {artisans.map((a) => (
+              <div
+                key={a.id}
+                className="bg-white rounded-2xl p-6 border border-warm-300/40 text-center"
+              >
+                <div className="w-20 h-20 rounded-full bg-russet-50 mx-auto flex items-center justify-center text-2xl font-bold text-russet-500">
+                  {a.name.charAt(0)}
+                </div>
+                <h3 className="mt-4 font-semibold text-navy-700 text-sm">
+                  {a.name}
+                </h3>
+                <p className="text-[12px] text-teal-500 font-semibold mt-1">
+                  {a.role}
+                </p>
+                {a.quote && (
+                  <blockquote className="mt-4 text-[13px] text-navy-400 italic leading-relaxed font-light">
+                    <Quote
+                      size={12}
+                      className="inline mr-1 text-russet-300"
+                    />
+                    {a.quote}
+                  </blockquote>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Artisans */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <SectionHeading
-          eyebrow="Arta mâinilor dibace"
-          title="Meșterii Noștri la Lucru"
-          description="Privește cum iau naștere obiectele tradiționale, direct din atelierele meșterilor populari."
-        />
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {artisans.map((a) => (
-            <div
-              key={a.id}
-              className="bg-white rounded-xl p-6 border border-earth-100 text-center"
-            >
-              <div className="w-20 h-20 rounded-full bg-brand-100 mx-auto flex items-center justify-center text-2xl font-bold text-brand-700">
-                {a.name.charAt(0)}
-              </div>
-              <h3 className="mt-4 font-semibold text-earth-800">{a.name}</h3>
-              <p className="text-sm text-brand-600 mt-1">{a.role}</p>
-              {a.quote && (
-                <blockquote className="mt-4 text-sm text-earth-500 italic leading-relaxed">
-                  <Quote size={14} className="inline mr-1 text-brand-300" />
-                  {a.quote}
-                </blockquote>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Reviews */}
+      {/* ─── REVIEWS ─── */}
       {reviews.length > 0 && (
-        <section className="bg-white border-t border-earth-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <SectionHeading
-              eyebrow="Părerea clienților"
-              title="Ce spun clienții noștri"
-            />
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {reviews.map((r) => (
-                <div
-                  key={r.id}
-                  className="bg-earth-50 rounded-xl p-5 border border-earth-100"
-                >
-                  <div className="flex items-center gap-1 mb-2">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        size={14}
-                        className={
-                          i < r.rating
-                            ? "fill-amber-400 text-amber-400"
-                            : "text-earth-200"
-                        }
-                      />
-                    ))}
+        <section className="max-w-[1200px] mx-auto px-7 py-24">
+          <SectionHeading
+            eyebrow="✦ Părerea clienților"
+            title="Ce spun clienții noștri"
+          />
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {reviews.map((r) => (
+              <div
+                key={r.id}
+                className="bg-white rounded-2xl p-5 border border-warm-300/40"
+              >
+                <div className="flex items-center gap-0.5 mb-3 text-amber-400">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      size={13}
+                      className={
+                        i < r.rating
+                          ? "fill-amber-400"
+                          : "text-warm-200 fill-warm-200"
+                      }
+                    />
+                  ))}
+                </div>
+                {r.content && (
+                  <p className="text-[13px] text-navy-500 line-clamp-3 mb-4 font-light leading-relaxed">
+                    {r.content}
+                  </p>
+                )}
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-russet-50 flex items-center justify-center text-[11px] font-bold text-russet-500">
+                    {r.author_name.charAt(0)}
                   </div>
-                  {r.content && (
-                    <p className="text-sm text-earth-600 line-clamp-3 mb-3">
-                      {r.content}
+                  <div>
+                    <p className="text-[13px] font-semibold text-navy-700">
+                      {r.author_name}
                     </p>
-                  )}
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-xs font-bold text-brand-700">
-                      {r.author_name.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-earth-800">
-                        {r.author_name}
+                    {r.verified && (
+                      <p className="text-[10px] text-teal-500 font-semibold">
+                        proprietar verificat
                       </p>
-                      {r.verified && (
-                        <p className="text-[10px] text-green-600 font-medium">
-                          proprietar verificat
-                        </p>
-                      )}
-                    </div>
+                    )}
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
       )}
+
+      {/* ─── NEWSLETTER ─── */}
+      <section className="bg-russet-500 py-20 px-6 text-center">
+        <h2 className="text-white text-[clamp(26px,4vw,38px)] font-bold mb-3">
+          Fii primul care află de noutăți
+        </h2>
+        <p className="text-white/75 text-[15px] max-w-[480px] mx-auto mb-8 font-light">
+          Abonează-te și primești oferte speciale, produse noi și povești din
+          atelierele meșterilor noștri.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input
+            type="email"
+            placeholder="Adresa ta de email"
+            className="flex-1 min-w-[200px] px-5 py-[13px] rounded-full border border-white/30 bg-white/15 text-white placeholder-white/50 text-[13px] outline-none focus:border-white/60"
+          />
+          <button className="px-6 py-[13px] rounded-full bg-white text-russet-600 font-bold text-[13px] hover:bg-warm-100 transition-colors">
+            Abonează-te
+          </button>
+        </div>
+      </section>
     </>
   );
 }

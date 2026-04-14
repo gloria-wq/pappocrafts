@@ -3,6 +3,7 @@ interface SectionHeadingProps {
   title: string;
   description?: string;
   centered?: boolean;
+  light?: boolean;
 }
 
 export default function SectionHeading({
@@ -10,17 +11,34 @@ export default function SectionHeading({
   title,
   description,
   centered = true,
+  light = false,
 }: SectionHeadingProps) {
   return (
     <div className={centered ? "text-center" : ""}>
       {eyebrow && (
-        <p className="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-2">
+        <span
+          className={`text-[11px] font-bold uppercase tracking-[0.22em] block mb-2.5 ${
+            light ? "text-teal-300" : "text-russet-500"
+          }`}
+        >
           {eyebrow}
-        </p>
+        </span>
       )}
-      <h2 className="text-3xl md:text-4xl font-bold text-earth-900">{title}</h2>
+      <h2
+        className={`text-[clamp(26px,3.8vw,42px)] font-bold leading-[1.15] ${
+          light ? "text-white" : "text-navy-700"
+        }`}
+      >
+        {title}
+      </h2>
       {description && (
-        <p className="mt-3 text-earth-600 max-w-2xl mx-auto">{description}</p>
+        <p
+          className={`mt-3 text-[15px] font-light leading-relaxed max-w-lg ${
+            centered ? "mx-auto" : ""
+          } ${light ? "text-warm-300/80" : "text-navy-500"}`}
+        >
+          {description}
+        </p>
       )}
     </div>
   );

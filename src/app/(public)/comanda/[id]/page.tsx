@@ -1,45 +1,28 @@
 import Link from "next/link";
 import { CheckCircle } from "lucide-react";
 
-export const metadata = {
-  title: "Comandă confirmată",
-};
+export const metadata = { title: "Comandă confirmată" };
 
-export default async function OrderConfirmationPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default async function OrderConfirmationPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
 
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-      <CheckCircle size={64} className="mx-auto text-green-500 mb-6" />
-      <h1 className="text-3xl font-bold text-earth-900">
-        Mulțumim pentru comandă!
-      </h1>
-      <p className="mt-4 text-earth-600">
+    <div className="max-w-2xl mx-auto px-7 pt-[120px] pb-20 text-center">
+      <CheckCircle size={64} className="mx-auto text-teal-500 mb-6" />
+      <h1 className="text-3xl font-bold text-navy-700">Mulțumim pentru comandă!</h1>
+      <p className="mt-4 text-navy-500 font-light">
         Comanda ta cu numărul{" "}
-        <span className="font-mono font-bold text-earth-800">
-          {id.slice(0, 8).toUpperCase()}
-        </span>{" "}
+        <span className="font-mono font-bold text-navy-700">{id.slice(0, 8).toUpperCase()}</span>{" "}
         a fost înregistrată cu succes.
       </p>
-      <p className="mt-2 text-earth-500 text-sm">
-        Vei primi un email de confirmare în curând.
-        Echipa noastră va pregăti comanda pentru expediere.
+      <p className="mt-2 text-navy-400 text-sm font-light">
+        Vei primi un email de confirmare în curând. Echipa noastră va pregăti comanda pentru expediere.
       </p>
       <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-        <Link
-          href="/magazin"
-          className="px-6 py-3 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700"
-        >
+        <Link href="/magazin" className="px-8 py-3 bg-russet-500 text-white font-bold rounded-full hover:bg-russet-600 shadow-[0_6px_20px_rgba(162,110,115,0.3)]">
           Continuă cumpărăturile
         </Link>
-        <Link
-          href="/"
-          className="px-6 py-3 bg-white text-brand-600 font-semibold rounded-xl border border-brand-200 hover:bg-brand-50"
-        >
+        <Link href="/" className="px-8 py-3 bg-white text-russet-500 font-bold rounded-full border border-warm-300/80 hover:bg-warm-100">
           Înapoi acasă
         </Link>
       </div>

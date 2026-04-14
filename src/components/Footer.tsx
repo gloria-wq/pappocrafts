@@ -1,35 +1,44 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-earth-900 text-earth-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-navy-700 text-warm-300/45">
+      <div className="max-w-[1200px] mx-auto px-7 pt-16 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 mb-12">
+          {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold text-white mb-4 font-[var(--font-heading)]">
-              PappoCrafts
-            </h3>
-            <p className="text-sm leading-relaxed">
-              Obiecte unice, lucrate manual din materiale naturale. Fiecare
-              produs poartă povestea unui meșter și sufletul tradiției românești
-              autentice.
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-xl font-bold text-white font-[var(--font-heading)] tracking-wide">
+                PAPPO
+              </span>
+              <span className="text-xs font-bold text-teal-400 tracking-[0.15em] uppercase">
+                crafts
+              </span>
+            </div>
+            <p className="text-[13px] leading-[1.75] max-w-[280px] font-light">
+              Fiecare piesă este făcută cu mâinile, cu dragoste, într-un mic
+              studio din inima României.
             </p>
           </div>
 
+          {/* Links */}
           <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Navigare
+            <h4 className="text-warm-300 text-[13px] font-bold mb-4 tracking-[0.05em]">
+              Magazin
             </h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2">
               {[
-                { href: "/magazin", label: "Magazin" },
-                { href: "/produse", label: "Categorii" },
-                { href: "/despre-noi", label: "Despre noi" },
-                { href: "/contact", label: "Contact" },
+                { href: "/produse/rachita-si-papura", label: "Rachită" },
+                { href: "/produse/cupru", label: "Cupru" },
+                { href: "/produse/lemn", label: "Lemn" },
+                { href: "/produse/cadouri", label: "Cadouri" },
+                { href: "/produse/ceramica-si-sticla", label: "Ceramică" },
               ].map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="hover:text-white transition-colors">
+                  <Link
+                    href={l.href}
+                    className="text-[13px] font-light hover:text-russet-300 transition-colors"
+                  >
                     {l.label}
                   </Link>
                 </li>
@@ -37,59 +46,54 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Info */}
           <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Categorii
+            <h4 className="text-warm-300 text-[13px] font-bold mb-4 tracking-[0.05em]">
+              Informații
             </h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2">
               {[
-                "Rachită și Papură",
-                "Cupru",
-                "Lemn",
-                "Cadouri",
-                "Ceramică",
-              ].map((c) => (
-                <li key={c}>
-                  <span className="hover:text-white transition-colors cursor-default">
-                    {c}
-                  </span>
+                { href: "/despre-noi", label: "Despre noi" },
+                { href: "/contact", label: "Contact" },
+                { href: "/magazin", label: "Magazin" },
+              ].map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-[13px] font-light hover:text-russet-300 transition-colors"
+                  >
+                    {l.label}
+                  </Link>
                 </li>
               ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Contact
-            </h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <Phone size={16} className="mt-0.5 shrink-0" />
-                <a href="tel:0726344038" className="hover:text-white">
+              <li>
+                <a
+                  href="tel:0726344038"
+                  className="text-[13px] font-light hover:text-russet-300 transition-colors"
+                >
                   0726 344 038
                 </a>
               </li>
-              <li className="flex items-start gap-2">
-                <Mail size={16} className="mt-0.5 shrink-0" />
-                <a href="mailto:office@pappocrafts.ro" className="hover:text-white">
+              <li>
+                <a
+                  href="mailto:office@pappocrafts.ro"
+                  className="text-[13px] font-light hover:text-russet-300 transition-colors"
+                >
                   office@pappocrafts.ro
                 </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 shrink-0" />
-                <span>Comuna Blejești, Jud. Teleorman</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Clock size={16} className="mt-0.5 shrink-0" />
-                <span>Luni – Vineri: 09:00 – 17:00</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-earth-700 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-earth-500">
-          <p>&copy; {new Date().getFullYear()} PappoCrafts. Toate drepturile rezervate.</p>
-          <p>CSI Management and Research S.R.L. &bull; CUI: RO44678251</p>
+        <div className="border-t border-white/[0.06] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span className="text-[12px] font-light text-warm-300/25">
+            &copy; {new Date().getFullYear()} PappoCrafts. Toate drepturile
+            rezervate. Creat cu dragoste in Romania.
+          </span>
+          <span className="text-[12px] font-light text-warm-300/25">
+            CSI Management and Research S.R.L.
+          </span>
         </div>
       </div>
     </footer>

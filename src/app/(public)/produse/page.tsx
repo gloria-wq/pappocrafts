@@ -11,29 +11,36 @@ export default async function CategoriesPage() {
   const categories = await getCategories();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <SectionHeading
-        title="Categorii de Produse"
-        description="Materiale naturale, mâini dibace, meșteșug autentic transmis din generație în generație."
-      />
-      <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-        {categories.map((cat) => (
-          <Link
-            key={cat.id}
-            href={`/produse/${cat.slug}`}
-            className="group bg-white rounded-xl p-8 border border-earth-100 hover:border-brand-200 hover:shadow-md transition-all text-center"
-          >
-            <span className="text-4xl block mb-4">{cat.icon ?? "📦"}</span>
-            <h3 className="text-lg font-semibold text-earth-800 group-hover:text-brand-600 transition-colors">
-              {cat.name}
-            </h3>
-            <p className="text-sm text-earth-500 mt-2">{cat.description}</p>
-            <span className="inline-block mt-4 text-sm text-brand-600 font-medium">
-              Explorează &rarr;
-            </span>
-          </Link>
-        ))}
+    <>
+      <section className="bg-navy-700 pt-[120px] pb-16 px-7 text-center">
+        <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-russet-300 block mb-2.5">
+          ✦ Tradiție vie
+        </span>
+        <h1 className="text-[clamp(32px,4.5vw,52px)] font-bold text-white">Categorii de Produse</h1>
+        <p className="text-warm-300/70 text-[15px] font-light mt-3 max-w-lg mx-auto">
+          Materiale naturale, mâini dibace, meșteșug autentic transmis din generație în generație.
+        </p>
+      </section>
+      <div className="max-w-[1200px] mx-auto px-7 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          {categories.map((cat) => (
+            <Link
+              key={cat.id}
+              href={`/produse/${cat.slug}`}
+              className="group bg-white rounded-2xl p-8 border border-warm-300/40 hover:border-russet-300 hover:shadow-lg transition-all text-center"
+            >
+              <span className="text-4xl block mb-4">{cat.icon ?? "📦"}</span>
+              <h3 className="text-[15px] font-semibold text-navy-700 group-hover:text-russet-500 transition-colors">
+                {cat.name}
+              </h3>
+              <p className="text-[12px] text-navy-400 mt-2 font-light">{cat.description}</p>
+              <span className="inline-block mt-4 text-[13px] text-russet-500 font-semibold">
+                Explorează &rarr;
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
