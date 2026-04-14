@@ -33,30 +33,10 @@ const VALUES = [
 ];
 
 const STATS = [
-  {
-    value: "4.96",
-    label: "rating mediu",
-    extra: "★★★★★",
-    teal: false,
-  },
-  {
-    value: "77+",
-    label: "recenzii reale",
-    extra: null,
-    teal: false,
-  },
-  {
-    value: "100%",
-    label: "handmade",
-    extra: null,
-    teal: true,
-  },
-  {
-    value: "24-48h",
-    label: "livrare națională",
-    extra: null,
-    teal: false,
-  },
+  { value: "4.96", label: "rating mediu", extra: "★★★★★", teal: false },
+  { value: "77+", label: "recenzii reale", extra: null, teal: false },
+  { value: "100%", label: "handmade", extra: null, teal: true },
+  { value: "24-48h", label: "livrare națională", extra: null, teal: false },
 ];
 
 export default async function HomePage() {
@@ -70,47 +50,21 @@ export default async function HomePage() {
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#f4f7f4]">
-        {/* Right-side video panels (decorative, desktop only) */}
-        <div className="hidden lg:grid absolute right-0 top-0 bottom-0 w-[35%] grid-rows-2 z-0 opacity-80">
-          <div className="overflow-hidden relative">
-            <video
-              src="/videos/hero1.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          </div>
-          <div className="overflow-hidden relative">
-            <video
-              src="/videos/hero2.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          </div>
-          {/* Gradient fade from bg into videos */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#f4f7f4] via-[#f4f7f4]/30 to-transparent pointer-events-none" />
-        </div>
-
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="relative z-10 max-w-[1200px] mx-auto w-full px-7 pt-[120px] pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Content */}
             <div>
-              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-teal-500/10 text-teal-600 text-[11px] font-bold uppercase tracking-[0.2em] mb-6">
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-teal-500/15 text-teal-700 text-[11px] font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm">
                 ✦ Din inima meșterilor români
               </span>
-              <h1 className="text-[clamp(36px,5vw,64px)] font-bold leading-[1.08] text-navy-700 mb-5">
+              <h1 className="text-[clamp(36px,5vw,64px)] font-bold leading-[1.08] text-navy-700 mb-5 drop-shadow-sm">
                 Artizanat românesc{" "}
                 <em className="text-[#4a6741] italic font-[var(--font-heading)]">
                   reimaginat digital
                 </em>
               </h1>
-              <p className="text-navy-400 text-[16px] leading-[1.75] max-w-[480px] mb-8 font-light">
+              <p className="text-navy-600 text-[16px] leading-[1.75] max-w-[480px] mb-8 font-light">
                 Descoperă obiecte unice lucrate manual din materiale naturale.
                 Fiecare produs poartă povestea unui meșter și sufletul tradiției
                 autentice.
@@ -118,14 +72,14 @@ export default async function HomePage() {
               <div className="flex flex-wrap gap-3 items-center">
                 <Link
                   href="/magazin"
-                  className="inline-flex items-center gap-2 px-7 py-3 bg-teal-500 text-white font-semibold text-sm rounded-full hover:bg-teal-600 transition-all shadow-[0_4px_16px_rgba(0,190,198,0.3)]"
+                  className="inline-flex items-center gap-2 px-7 py-3 bg-teal-500 text-white font-semibold text-sm rounded-full hover:bg-teal-600 transition-all shadow-[0_4px_16px_rgba(0,190,198,0.35)]"
                 >
                   Explorează colecția
                 </Link>
                 <Link
                   href="https://pappocrafts.ro"
                   target="_blank"
-                  className="inline-flex items-center gap-1.5 px-6 py-3 text-sm font-semibold text-navy-600 border border-navy-200 rounded-full hover:bg-white/60 transition-all"
+                  className="inline-flex items-center gap-1.5 px-6 py-3 text-sm font-semibold text-navy-700 bg-white/60 backdrop-blur-sm border border-white/50 rounded-full hover:bg-white/80 transition-all"
                 >
                   Site original →
                 </Link>
@@ -137,25 +91,25 @@ export default async function HomePage() {
               {STATS.map((s) => (
                 <div
                   key={s.label}
-                  className={`rounded-2xl p-6 text-center border transition-shadow hover:shadow-md ${
+                  className={`rounded-2xl p-6 text-center border backdrop-blur-md transition-shadow hover:shadow-lg ${
                     s.teal
-                      ? "bg-teal-500/10 border-teal-200"
-                      : "bg-white/80 backdrop-blur-sm border-warm-200"
+                      ? "bg-teal-500/20 border-teal-300/50"
+                      : "bg-white/60 border-white/50"
                   }`}
                 >
                   <div
                     className={`text-[32px] font-bold leading-none mb-1 font-[var(--font-heading)] ${
-                      s.teal ? "text-teal-600" : "text-navy-700"
+                      s.teal ? "text-teal-700" : "text-navy-700"
                     }`}
                   >
                     {s.value}
                   </div>
                   {s.extra && (
-                    <div className="text-amber-400 text-[13px] mb-1">
+                    <div className="text-amber-500 text-[13px] mb-1">
                       {s.extra}
                     </div>
                   )}
-                  <div className="text-[12px] text-navy-400 font-medium">
+                  <div className="text-[12px] text-navy-500 font-medium">
                     {s.label}
                   </div>
                 </div>
@@ -165,37 +119,19 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── VIDEO STRIP ─── */}
-      <div className="relative w-full h-[320px] overflow-hidden">
-        <video
-          src="/videos/hero2.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-navy-700/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-white text-[clamp(18px,3vw,28px)] font-light italic tracking-wide text-center px-6 drop-shadow-lg font-[var(--font-heading)]">
-            &ldquo;Fiecare obiect poartă amprenta unui meșter adevărat.&rdquo;
-          </p>
-        </div>
-      </div>
-
       {/* ─── VALUES BAR ─── */}
-      <section className="bg-warm-50 py-14 border-t border-warm-100">
+      <section className="py-14">
         <div className="max-w-[1200px] mx-auto px-7 grid grid-cols-2 lg:grid-cols-4 gap-5">
           {VALUES.map((v) => (
             <div
               key={v.title}
-              className="bg-white rounded-2xl p-6 border border-warm-200 hover:shadow-md transition-shadow"
+              className="bg-white/60 backdrop-blur-md rounded-2xl p-6 border border-white/50 hover:shadow-lg transition-all hover:bg-white/75"
             >
               <span className="text-2xl block mb-3">{v.icon}</span>
               <h3 className="text-[14px] font-bold text-navy-700 mb-1.5 font-[var(--font-body)]">
                 {v.title}
               </h3>
-              <p className="text-[12px] text-navy-400 font-light leading-relaxed">
+              <p className="text-[12px] text-navy-500 font-light leading-relaxed">
                 {v.desc}
               </p>
             </div>
@@ -226,22 +162,16 @@ export default async function HomePage() {
       </section>
 
       {/* ─── STORY SECTION ─── */}
-      <section className="bg-warm-100 py-24">
+      <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-7 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
-            <div className="grid grid-cols-2 gap-4 rounded-2xl overflow-hidden">
-              <div className="aspect-[3/4] bg-warm-200 rounded-2xl" />
-              <div className="aspect-[3/4] bg-warm-300/50 rounded-2xl" />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="aspect-[3/4] bg-warm-200/60 backdrop-blur-sm rounded-2xl border border-white/40" />
+              <div className="aspect-[3/4] bg-warm-300/40 backdrop-blur-sm rounded-2xl border border-white/40" />
             </div>
             <div className="absolute -bottom-5 -right-5 bg-russet-500 text-white rounded-2xl px-6 py-5 text-center shadow-[0_12px_40px_rgba(162,110,115,0.4)] z-10">
-              <div className="text-[42px] font-bold leading-none font-[var(--font-heading)]">
-                8+
-              </div>
-              <div className="text-[11px] opacity-85 mt-1 tracking-[0.05em]">
-                Ani de
-                <br />
-                Meșteșug
-              </div>
+              <div className="text-[42px] font-bold leading-none font-[var(--font-heading)]">8+</div>
+              <div className="text-[11px] opacity-85 mt-1 tracking-[0.05em]">Ani de<br />Meșteșug</div>
             </div>
           </div>
 
@@ -250,16 +180,15 @@ export default async function HomePage() {
               ✦ Povestea noastră
             </span>
             <h2 className="text-[clamp(26px,3.8vw,42px)] font-bold text-navy-700 leading-[1.15] mb-6">
-              Un studio mic cu
-              <br />
+              Un studio mic cu<br />
               <em className="text-russet-500 not-italic">o inimă mare.</em>
             </h2>
-            <p className="text-navy-500 text-[15px] leading-[1.85] font-light mb-4">
+            <p className="text-navy-600 text-[15px] leading-[1.85] font-light mb-4">
               PappoCrafts s-a născut dintr-o convingere simplă: meșteșugul
               tradițional românesc merită să trăiască. Nu în muzee — ci în
               casele oamenilor, în bucătării, pe mese, în viața de zi cu zi.
             </p>
-            <p className="text-navy-500 text-[15px] leading-[1.85] font-light mb-8">
+            <p className="text-navy-600 text-[15px] leading-[1.85] font-light mb-8">
               Folosim materii prime curate: lemn de tei, cupru alimentar cu
               puritate de 99,97%, răchită naturală. Fiecare obiect a trecut
               prin mâinile unui meșter — niciodată printr-o fabrică.
@@ -294,13 +223,13 @@ export default async function HomePage() {
             <Link
               key={cat.id}
               href={`/produse/${cat.slug}`}
-              className="group bg-white rounded-2xl p-6 border border-warm-300/40 hover:border-russet-300 hover:shadow-lg transition-all text-center"
+              className="group bg-white/60 backdrop-blur-md rounded-2xl p-6 border border-white/50 hover:border-russet-300 hover:shadow-lg hover:bg-white/80 transition-all text-center"
             >
               <span className="text-3xl block mb-3">{cat.icon ?? "📦"}</span>
               <h3 className="font-semibold text-navy-700 group-hover:text-russet-500 transition-colors text-sm">
                 {cat.name}
               </h3>
-              <p className="text-[12px] text-navy-400 mt-1 font-light">
+              <p className="text-[12px] text-navy-500 mt-1 font-light">
                 {cat.description}
               </p>
             </Link>
@@ -309,7 +238,7 @@ export default async function HomePage() {
       </section>
 
       {/* ─── ARTISANS ─── */}
-      <section className="bg-warm-100 py-24">
+      <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-7">
           <SectionHeading
             eyebrow="✦ Mâinile care creează"
@@ -320,23 +249,16 @@ export default async function HomePage() {
             {artisans.map((a) => (
               <div
                 key={a.id}
-                className="bg-white rounded-2xl p-6 border border-warm-300/40 text-center"
+                className="bg-white/60 backdrop-blur-md rounded-2xl p-6 border border-white/50 text-center hover:bg-white/75 transition-all"
               >
                 <div className="w-20 h-20 rounded-full bg-russet-50 mx-auto flex items-center justify-center text-2xl font-bold text-russet-500">
                   {a.name.charAt(0)}
                 </div>
-                <h3 className="mt-4 font-semibold text-navy-700 text-sm">
-                  {a.name}
-                </h3>
-                <p className="text-[12px] text-teal-500 font-semibold mt-1">
-                  {a.role}
-                </p>
+                <h3 className="mt-4 font-semibold text-navy-700 text-sm">{a.name}</h3>
+                <p className="text-[12px] text-teal-600 font-semibold mt-1">{a.role}</p>
                 {a.quote && (
-                  <blockquote className="mt-4 text-[13px] text-navy-400 italic leading-relaxed font-light">
-                    <Quote
-                      size={12}
-                      className="inline mr-1 text-russet-300"
-                    />
+                  <blockquote className="mt-4 text-[13px] text-navy-500 italic leading-relaxed font-light">
+                    <Quote size={12} className="inline mr-1 text-russet-300" />
                     {a.quote}
                   </blockquote>
                 )}
@@ -357,23 +279,19 @@ export default async function HomePage() {
             {reviews.map((r) => (
               <div
                 key={r.id}
-                className="bg-white rounded-2xl p-5 border border-warm-300/40"
+                className="bg-white/60 backdrop-blur-md rounded-2xl p-5 border border-white/50 hover:bg-white/75 transition-all"
               >
                 <div className="flex items-center gap-0.5 mb-3 text-amber-400">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}
                       size={13}
-                      className={
-                        i < r.rating
-                          ? "fill-amber-400"
-                          : "text-warm-200 fill-warm-200"
-                      }
+                      className={i < r.rating ? "fill-amber-400" : "text-warm-200 fill-warm-200"}
                     />
                   ))}
                 </div>
                 {r.content && (
-                  <p className="text-[13px] text-navy-500 line-clamp-3 mb-4 font-light leading-relaxed">
+                  <p className="text-[13px] text-navy-600 line-clamp-3 mb-4 font-light leading-relaxed">
                     {r.content}
                   </p>
                 )}
@@ -382,13 +300,9 @@ export default async function HomePage() {
                     {r.author_name.charAt(0)}
                   </div>
                   <div>
-                    <p className="text-[13px] font-semibold text-navy-700">
-                      {r.author_name}
-                    </p>
+                    <p className="text-[13px] font-semibold text-navy-700">{r.author_name}</p>
                     {r.verified && (
-                      <p className="text-[10px] text-teal-500 font-semibold">
-                        proprietar verificat
-                      </p>
+                      <p className="text-[10px] text-teal-600 font-semibold">proprietar verificat</p>
                     )}
                   </div>
                 </div>
@@ -399,23 +313,25 @@ export default async function HomePage() {
       )}
 
       {/* ─── NEWSLETTER ─── */}
-      <section className="bg-russet-500 py-20 px-6 text-center">
-        <h2 className="text-white text-[clamp(26px,4vw,38px)] font-bold mb-3">
-          Fii primul care află de noutăți
-        </h2>
-        <p className="text-white/75 text-[15px] max-w-[480px] mx-auto mb-8 font-light">
-          Abonează-te și primești oferte speciale, produse noi și povești din
-          atelierele meșterilor noștri.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-          <input
-            type="email"
-            placeholder="Adresa ta de email"
-            className="flex-1 min-w-[200px] px-5 py-[13px] rounded-full border border-white/30 bg-white/15 text-white placeholder-white/50 text-[13px] outline-none focus:border-white/60"
-          />
-          <button className="px-6 py-[13px] rounded-full bg-white text-russet-600 font-bold text-[13px] hover:bg-warm-100 transition-colors">
-            Abonează-te
-          </button>
+      <section className="py-20 px-6 text-center">
+        <div className="max-w-2xl mx-auto bg-russet-500/90 backdrop-blur-md rounded-3xl px-8 py-14 border border-russet-400/30 shadow-2xl">
+          <h2 className="text-white text-[clamp(26px,4vw,38px)] font-bold mb-3">
+            Fii primul care află de noutăți
+          </h2>
+          <p className="text-white/75 text-[15px] max-w-[480px] mx-auto mb-8 font-light">
+            Abonează-te și primești oferte speciale, produse noi și povești din
+            atelierele meșterilor noștri.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Adresa ta de email"
+              className="flex-1 min-w-[200px] px-5 py-[13px] rounded-full border border-white/30 bg-white/15 text-white placeholder-white/50 text-[13px] outline-none focus:border-white/60"
+            />
+            <button className="px-6 py-[13px] rounded-full bg-white text-russet-600 font-bold text-[13px] hover:bg-warm-100 transition-colors">
+              Abonează-te
+            </button>
+          </div>
         </div>
       </section>
     </>
