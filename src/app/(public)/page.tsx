@@ -11,24 +11,51 @@ import {
 
 const VALUES = [
   {
-    icon: "✋",
+    icon: "🤚",
     title: "100% Handmade",
     desc: "Fiecare obiect este creat manual de meșteșugari cu experiență.",
   },
   {
     icon: "🌿",
-    title: "Materiale Naturale",
-    desc: "Lemn, cupru, rachită — materii prime curate și locale.",
+    title: "Materiale naturale",
+    desc: "Lemn, cupru, rachită, textile — materii prime curate.",
+  },
+  {
+    icon: "⚡",
+    title: "Livrare 24-48h",
+    desc: "Expediere rapidă prin curier în toată România.",
   },
   {
     icon: "🎨",
     title: "Personalizare",
-    desc: "Personalizăm obiectele în funcție de nevoile tale unice.",
+    desc: "Personalizări unice, adaptate dorințelor tale.",
+  },
+];
+
+const STATS = [
+  {
+    value: "4.96",
+    label: "rating mediu",
+    extra: "★★★★★",
+    teal: false,
   },
   {
-    icon: "📦",
-    title: "Livrare Rapidă",
-    desc: "Expediere prin curier în 24–48 ore în toată România.",
+    value: "77+",
+    label: "recenzii reale",
+    extra: null,
+    teal: false,
+  },
+  {
+    value: "100%",
+    label: "handmade",
+    extra: null,
+    teal: true,
+  },
+  {
+    value: "24-48h",
+    label: "livrare națională",
+    extra: null,
+    teal: false,
   },
 ];
 
@@ -43,52 +70,88 @@ export default async function HomePage() {
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-navy-700">
-        <div className="absolute inset-0 z-0 bg-gradient-to-r from-navy-700/90 via-navy-700/65 to-navy-700/25" />
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#f4f7f4]">
         <div className="relative z-10 max-w-[1200px] mx-auto w-full px-7 pt-[120px] pb-20">
-          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-teal-300 block mb-5">
-            ✦ Meșteșug Autentic Românesc
-          </span>
-          <h1 className="text-[clamp(40px,5.5vw,70px)] text-white font-bold leading-[1.08] max-w-[620px] mb-5">
-            Artizanat Românesc{" "}
-            <em className="text-warm-300 not-italic">Reimaginat</em>
-          </h1>
-          <p className="text-warm-300/80 text-[17px] leading-[1.75] max-w-[480px] mb-10 font-light">
-            Fiecare piesă spune o poveste — de la mâinile meșterului, direct în
-            casa ta. Obiecte unice, create cu dragoste din materiale naturale.
-          </p>
-          <div className="flex flex-wrap gap-4 items-center">
-            <Link
-              href="/magazin"
-              className="inline-flex items-center gap-2 px-[30px] py-[13px] bg-russet-500 text-white font-semibold text-sm rounded-full hover:bg-russet-600 transition-all shadow-[0_6px_20px_rgba(162,110,115,0.3)]"
-            >
-              Explorează Colecția
-            </Link>
-            <Link
-              href="/despre-noi"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-warm-300 transition-colors"
-            >
-              Povestea noastră <ChevronRight size={15} />
-            </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-teal-500/10 text-teal-600 text-[11px] font-bold uppercase tracking-[0.2em] mb-6">
+                ✦ Din inima meșterilor români
+              </span>
+              <h1 className="text-[clamp(36px,5vw,64px)] font-bold leading-[1.08] text-navy-700 mb-5">
+                Artizanat românesc{" "}
+                <em className="text-[#4a6741] italic font-[var(--font-heading)]">
+                  reimaginat digital
+                </em>
+              </h1>
+              <p className="text-navy-400 text-[16px] leading-[1.75] max-w-[480px] mb-8 font-light">
+                Descoperă obiecte unice lucrate manual din materiale naturale.
+                Fiecare produs poartă povestea unui meșter și sufletul tradiției
+                autentice.
+              </p>
+              <div className="flex flex-wrap gap-3 items-center">
+                <Link
+                  href="/magazin"
+                  className="inline-flex items-center gap-2 px-7 py-3 bg-teal-500 text-white font-semibold text-sm rounded-full hover:bg-teal-600 transition-all shadow-[0_4px_16px_rgba(0,190,198,0.3)]"
+                >
+                  Explorează colecția
+                </Link>
+                <Link
+                  href="https://pappocrafts.ro"
+                  target="_blank"
+                  className="inline-flex items-center gap-1.5 px-6 py-3 text-sm font-semibold text-navy-600 border border-navy-200 rounded-full hover:bg-white/60 transition-all"
+                >
+                  Site original →
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: Stat cards */}
+            <div className="grid grid-cols-2 gap-4 max-w-[420px] lg:ml-auto">
+              {STATS.map((s) => (
+                <div
+                  key={s.label}
+                  className={`rounded-2xl p-6 text-center border transition-shadow hover:shadow-md ${
+                    s.teal
+                      ? "bg-teal-500/10 border-teal-200"
+                      : "bg-white border-warm-200"
+                  }`}
+                >
+                  <div
+                    className={`text-[32px] font-bold leading-none mb-1 font-[var(--font-heading)] ${
+                      s.teal ? "text-teal-600" : "text-navy-700"
+                    }`}
+                  >
+                    {s.value}
+                  </div>
+                  {s.extra && (
+                    <div className="text-amber-400 text-[13px] mb-1">
+                      {s.extra}
+                    </div>
+                  )}
+                  <div className="text-[12px] text-navy-400 font-medium">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ─── VALUES BAR ─── */}
-      <section className="bg-navy-700 py-14 border-t border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-7 grid grid-cols-2 lg:grid-cols-4 gap-0">
-          {VALUES.map((v, i) => (
+      <section className="bg-warm-50 py-14 border-t border-warm-100">
+        <div className="max-w-[1200px] mx-auto px-7 grid grid-cols-2 lg:grid-cols-4 gap-5">
+          {VALUES.map((v) => (
             <div
               key={v.title}
-              className={`text-center py-6 px-4 ${
-                i < 3 ? "lg:border-r border-white/[0.06]" : ""
-              }`}
+              className="bg-white rounded-2xl p-6 border border-warm-200 hover:shadow-md transition-shadow"
             >
-              <span className="text-2xl block mb-2">{v.icon}</span>
-              <h3 className="text-[13px] font-bold text-white mb-1.5 font-[var(--font-body)]">
+              <span className="text-2xl block mb-3">{v.icon}</span>
+              <h3 className="text-[14px] font-bold text-navy-700 mb-1.5 font-[var(--font-body)]">
                 {v.title}
               </h3>
-              <p className="text-[12px] text-warm-300/50 font-light leading-relaxed">
+              <p className="text-[12px] text-navy-400 font-light leading-relaxed">
                 {v.desc}
               </p>
             </div>
@@ -121,7 +184,6 @@ export default async function HomePage() {
       {/* ─── STORY SECTION ─── */}
       <section className="bg-warm-100 py-24">
         <div className="max-w-[1200px] mx-auto px-7 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left: image grid with badge */}
           <div className="relative">
             <div className="grid grid-cols-2 gap-4 rounded-2xl overflow-hidden">
               <div className="aspect-[3/4] bg-warm-200 rounded-2xl" />
@@ -139,7 +201,6 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* Right: text */}
           <div className="pl-0 lg:pl-4">
             <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-russet-500 block mb-2.5">
               ✦ Povestea noastră

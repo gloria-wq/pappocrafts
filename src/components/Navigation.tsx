@@ -3,15 +3,14 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { ShoppingCart, Menu, X, Moon, User } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import Logo from "@/components/Logo";
 
 const NAV_LINKS = [
-  { href: "/", label: "Acasă" },
-  { href: "/magazin", label: "Magazin" },
+  { href: "/magazin", label: "Colecție" },
   { href: "/produse", label: "Categorii" },
-  { href: "/despre-noi", label: "Despre Noi" },
-  { href: "/contact", label: "Contact" },
+  { href: "/despre-noi", label: "Despre" },
 ];
 
 export default function Navigation() {
@@ -40,21 +39,12 @@ export default function Navigation() {
     >
       <nav className="max-w-[1200px] mx-auto px-7 flex items-center justify-between h-[72px]">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <span
-            className={`text-xl font-bold tracking-wide transition-colors font-[var(--font-heading)] ${
-              transparent ? "text-white" : "text-navy-700"
-            }`}
-          >
-            PAPPO
-          </span>
-          <span
-            className={`text-xs font-semibold tracking-[0.15em] uppercase transition-colors ${
-              transparent ? "text-teal-300" : "text-teal-500"
-            }`}
-          >
-            crafts
-          </span>
+        <Link href="/" className="flex items-center shrink-0">
+          <Logo
+            color={transparent ? "white" : "#00263A"}
+            accentColor="#00BEC6"
+            className="h-[40px] w-auto"
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -81,8 +71,29 @@ export default function Navigation() {
           })}
         </div>
 
-        {/* Right side */}
-        <div className="flex items-center gap-3">
+        {/* Right side icons */}
+        <div className="flex items-center gap-1">
+          <button
+            className={`hidden md:flex p-2.5 rounded-full transition-all ${
+              transparent
+                ? "text-white/85 hover:bg-white/15 hover:text-white"
+                : "text-navy-700 hover:text-russet-500 hover:bg-russet-50"
+            }`}
+            aria-label="Mod întunecat"
+          >
+            <Moon size={18} />
+          </button>
+          <Link
+            href="/admin"
+            className={`hidden md:flex p-2.5 rounded-full transition-all ${
+              transparent
+                ? "text-white/85 hover:bg-white/15 hover:text-white"
+                : "text-navy-700 hover:text-russet-500 hover:bg-russet-50"
+            }`}
+            aria-label="Cont"
+          >
+            <User size={18} />
+          </Link>
           <Link
             href="/cos"
             className={`relative p-2.5 rounded-full transition-all ${
@@ -91,9 +102,9 @@ export default function Navigation() {
                 : "text-navy-700 hover:text-russet-500 hover:bg-russet-50"
             }`}
           >
-            <ShoppingCart size={20} />
+            <ShoppingCart size={18} />
             {totalItems > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 bg-russet-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md">
+              <span className="absolute -top-0.5 -right-0.5 bg-teal-500 text-white text-[10px] font-bold w-[18px] h-[18px] rounded-full flex items-center justify-center">
                 {totalItems}
               </span>
             )}
