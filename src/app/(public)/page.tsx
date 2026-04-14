@@ -58,17 +58,16 @@ export default async function HomePage() {
               <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-teal-500/15 text-teal-700 text-[11px] font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm">
                 ✦ Din inima meșterilor români
               </span>
-              <h1 className="text-[clamp(36px,5vw,64px)] font-bold leading-[1.08] text-navy-700 mb-5 drop-shadow-sm">
-                Artizanat românesc{" "}
-                <em className="text-[#4a6741] italic font-[var(--font-heading)]">
+              <h1 className="text-[clamp(36px,5vw,64px)] font-bold leading-[1.12] mb-5 drop-shadow-md">
+                <em className="text-[#FDD2BC] italic font-[var(--font-heading)] not-italic">
                   Meșteșugul tradițional
                 </em>
                 <br />
-                <em className="text-russet-500 not-italic">
+                <em className="text-[#FDD2BC] not-italic">
                   adus în casa ta
                 </em>
               </h1>
-              <p className="text-navy-600 text-[16px] leading-[1.75] max-w-[480px] mb-8 font-light">
+              <p className="text-white text-[16px] leading-[1.75] max-w-[480px] mb-8 font-light drop-shadow-sm">
                 Descoperă obiecte unice lucrate manual din materiale naturale.
                 Fiecare produs poartă povestea unui meșter și sufletul tradiției
                 autentice.
