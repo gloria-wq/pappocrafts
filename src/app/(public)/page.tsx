@@ -71,6 +71,32 @@ export default async function HomePage() {
     <>
       {/* ─── HERO ─── */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#f4f7f4]">
+        {/* Right-side video panels (decorative, desktop only) */}
+        <div className="hidden lg:grid absolute right-0 top-0 bottom-0 w-[35%] grid-rows-2 z-0 opacity-80">
+          <div className="overflow-hidden relative">
+            <video
+              src="/videos/hero1.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+          <div className="overflow-hidden relative">
+            <video
+              src="/videos/hero2.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+          {/* Gradient fade from bg into videos */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#f4f7f4] via-[#f4f7f4]/30 to-transparent pointer-events-none" />
+        </div>
+
         <div className="relative z-10 max-w-[1200px] mx-auto w-full px-7 pt-[120px] pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Content */}
@@ -114,7 +140,7 @@ export default async function HomePage() {
                   className={`rounded-2xl p-6 text-center border transition-shadow hover:shadow-md ${
                     s.teal
                       ? "bg-teal-500/10 border-teal-200"
-                      : "bg-white border-warm-200"
+                      : "bg-white/80 backdrop-blur-sm border-warm-200"
                   }`}
                 >
                   <div
@@ -138,6 +164,24 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ─── VIDEO STRIP ─── */}
+      <div className="relative w-full h-[320px] overflow-hidden">
+        <video
+          src="/videos/hero2.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-navy-700/40" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <p className="text-white text-[clamp(18px,3vw,28px)] font-light italic tracking-wide text-center px-6 drop-shadow-lg font-[var(--font-heading)]">
+            &ldquo;Fiecare obiect poartă amprenta unui meșter adevărat.&rdquo;
+          </p>
+        </div>
+      </div>
 
       {/* ─── VALUES BAR ─── */}
       <section className="bg-warm-50 py-14 border-t border-warm-100">
