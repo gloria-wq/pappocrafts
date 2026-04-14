@@ -61,7 +61,11 @@ export default async function HomePage() {
               <h1 className="text-[clamp(36px,5vw,64px)] font-bold leading-[1.08] text-navy-700 mb-5 drop-shadow-sm">
                 Artizanat românesc{" "}
                 <em className="text-[#4a6741] italic font-[var(--font-heading)]">
-                  reimaginat digital
+                  Meșteșugul tradițional
+                </em>
+                <br />
+                <em className="text-russet-500 not-italic">
+                  adus în casa ta
                 </em>
               </h1>
               <p className="text-navy-600 text-[16px] leading-[1.75] max-w-[480px] mb-8 font-light">

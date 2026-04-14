@@ -18,8 +18,8 @@ export default function PublicLayout({
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Overlay: keeps all content readable */}
-        <div className="absolute inset-0 bg-white/70 backdrop-blur-[1px]" />
+        {/* Overlay: light enough to keep video visible, enough for readability */}
+        <div className="absolute inset-0 bg-white/35" />
       </div>
 
       <Navigation />
