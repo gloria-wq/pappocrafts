@@ -1,26 +1,45 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-brand-50: #fdf8f0;
+  --color-brand-100: #f5e6cc;
+  --color-brand-200: #ebcda0;
+  --color-brand-300: #d9a86a;
+  --color-brand-400: #c78a3f;
+  --color-brand-500: #a16c2a;
+  --color-brand-600: #7d5320;
+  --color-brand-700: #5c3d17;
+  --color-brand-800: #3e2910;
+  --color-brand-900: #261a0b;
+
+  --color-accent-500: #b8860b;
+  --color-accent-600: #956d09;
+
+  --color-earth-50: #faf9f7;
+  --color-earth-100: #f0ece5;
+  --color-earth-200: #e0d6c8;
+  --color-earth-300: #c4b49a;
+  --color-earth-400: #a89070;
+  --color-earth-500: #8b7355;
+  --color-earth-600: #6e5a42;
+  --color-earth-700: #544434;
+  --color-earth-800: #3a2e23;
+  --color-earth-900: #221b15;
+
+  --font-heading: "Georgia", serif;
+  --font-body: system-ui, -apple-system, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  color: var(--color-earth-900);
+  background-color: var(--color-earth-50);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
 }
