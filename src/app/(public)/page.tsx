@@ -83,7 +83,7 @@ export default async function HomePage() {
                   href="/artisans"
                   className="inline-flex items-center gap-1.5 px-6 py-3 text-sm font-semibold text-white bg-white/20 backdrop-blur-sm border border-white/30 rounded-full hover:bg-white/30 transition-all"
                 >
-                  Discover the artisans&apos; stories →
+                  Descoperă poveștile meșterilor →
                 </Link>
               </div>
             </div>

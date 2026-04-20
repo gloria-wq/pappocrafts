@@ -33,8 +33,8 @@ export default function Navigation() {
       }`}
     >
       <nav className="max-w-[1200px] mx-auto px-7 flex items-center justify-between h-[72px]">
-        {/* Logo image */}
-        <Link href="/" className="flex items-center shrink-0">
+        {/* Logo image — transparent background, no shadow */}
+        <Link href="/" className="flex items-center shrink-0 bg-transparent">
           <Image
             src="/logo-white.png"
             alt="PappoCrafts"
@@ -43,6 +43,7 @@ export default function Navigation() {
             className={`h-[42px] w-auto object-contain transition-all duration-300 ${
               scrolled ? "brightness-0" : "brightness-100"
             }`}
+            style={{ background: "none", boxShadow: "none" }}
             priority
           />
         </Link>
