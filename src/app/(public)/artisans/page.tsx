@@ -34,34 +34,28 @@ const CARDS = [
     icon: "/icons/responsible.png",
     title: "Tradiție meșteșugărească",
     desc: "Fiecare piesă este modelată manual, purtând secole de meșteșug românesc transmis din generație în generație.",
-    // Warm White #FDD2BC
     titleColor: "#FDD2BC",
-    iconFilter: "screen",
-    hueFilter: "brightness(0) invert(1) sepia(0.2) saturate(2.5) hue-rotate(-20deg) brightness(1.05)",
+    blendMode: "multiply" as const,
   },
   {
     icon: "/icons/natural.png",
     title: "Materiale naturale",
     desc: "Lucrăm exclusiv cu lemn de tei, cupru de 99,97% puritate, răchită naturală și textile organice — nimic artificial.",
-    // Russet Brown #A26E73
     titleColor: "#A26E73",
-    iconFilter: "screen",
-    hueFilter: "brightness(0) invert(1) sepia(1) saturate(0.55) hue-rotate(300deg) brightness(0.82)",
+    blendMode: "multiply" as const,
   },
   {
     icon: "/icons/handmade.png",
     title: "Făcut cu grijă",
     desc: "Fiecare obiect necesită ore, uneori zile de muncă. Acel timp și acea intenție se simt când ții în mâini o piesă PappoCrafts.",
-    // Turquoise #00BEC6
     titleColor: "#00BEC6",
-    iconFilter: "screen",
-    hueFilter: "brightness(0) invert(1) sepia(1) saturate(10) hue-rotate(153deg) brightness(0.9)",
+    blendMode: "screen" as const,
   },
 ];
 
 export default function ArtisansPage() {
   return (
-    <>
+    <div style={{ fontFamily: "var(--font-blogger)" }}>
       {/* ─── HERO ─── */}
       <section className="pt-[140px] pb-20 px-7 max-w-[860px] mx-auto">
         {/* Back link — left aligned */}
@@ -124,23 +118,23 @@ export default function ArtisansPage() {
               key={c.title}
               className="flex flex-col items-center text-center py-6"
             >
-              {/* Icon — filter converts to brand color */}
+              {/* Icon — blend mode removes background */}
               <div className="mb-6 w-[100px] h-[100px] relative">
                 <Image
                   src={c.icon}
                   alt={c.title}
                   fill
                   className="object-contain"
-                  style={{ filter: c.hueFilter }}
+                  style={{ mixBlendMode: c.blendMode }}
                 />
               </div>
               <h3
                 className="text-[17px] font-bold mb-3"
-                style={{ color: c.titleColor }}
+                style={{ color: c.titleColor, fontFamily: "var(--font-blogger)" }}
               >
                 {c.title}
               </h3>
-              <p className="text-[14px] text-white/90 leading-[1.8] font-light max-w-[260px]">
+              <p className="text-[14px] text-white/90 leading-[1.8] font-light max-w-[260px]" style={{ fontFamily: "var(--font-blogger)" }}>
                 {c.desc}
               </p>
             </div>
@@ -156,6 +150,6 @@ export default function ArtisansPage() {
           </Link>
         </div>
       </section>
-    </>
+    </div>
   );
 }
