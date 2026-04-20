@@ -45,7 +45,7 @@ export default function ProductCard({ product }: { product: Product }) {
           </span>
         )}
         <Link href={`/produs/${product.slug}`}>
-          <h3 className="text-sm font-medium text-navy-700 line-clamp-2 leading-snug mt-1 hover:text-russet-500 transition-colors">
+          <h3 className="text-sm font-medium text-navy-700 line-clamp-2 leading-snug mt-1 hover:text-russet-500 transition-colors font-[var(--font-blogger)]">
             {product.name}
           </h3>
         </Link>
