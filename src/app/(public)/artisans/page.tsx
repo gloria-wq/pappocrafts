@@ -32,19 +32,16 @@ const ARTISANS = [
 const CARDS = [
   {
     icon: "/icons/responsible.png",
-    label: "responsible",
     title: "Tradiție meșteșugărească",
     desc: "Fiecare piesă este modelată manual, purtând secole de meșteșug românesc transmis din generație în generație.",
   },
   {
     icon: "/icons/natural.png",
-    label: "natural",
     title: "Materiale naturale",
     desc: "Lucrăm exclusiv cu lemn de tei, cupru de 99,97% puritate, răchită naturală și textile organice — nimic artificial.",
   },
   {
     icon: "/icons/handmade.png",
-    label: "handmade",
     title: "Făcut cu grijă",
     desc: "Fiecare obiect necesită ore, uneori zile de muncă. Acel timp și acea intenție se simt când ții în mâini o piesă PappoCrafts.",
   },
@@ -115,19 +112,16 @@ export default function ArtisansPage() {
               key={c.title}
               className="bg-white/60 backdrop-blur-md rounded-2xl p-8 border border-white/50 hover:bg-white/75 hover:shadow-xl transition-all flex flex-col items-center text-center"
             >
-              {/* Brand icon — mix-blend-mode:multiply removes the colored background */}
+              {/* Brand icon — screen blend removes black background */}
               <div className="mb-5 w-[88px] h-[88px] relative">
                 <Image
                   src={c.icon}
-                  alt={c.label}
+                  alt={c.title}
                   fill
                   className="object-contain"
-                  style={{ mixBlendMode: "multiply" }}
+                  style={{ mixBlendMode: "screen" }}
                 />
               </div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-russet-400 mb-2">
-                {c.label}
-              </p>
               <h3 className="text-[16px] font-bold text-navy-700 mb-3">{c.title}</h3>
               <p className="text-[13px] text-navy-600 leading-[1.8] font-light">{c.desc}</p>
             </div>
