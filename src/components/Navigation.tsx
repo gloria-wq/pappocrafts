@@ -36,12 +36,11 @@ export default function Navigation() {
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt="PappoCrafts"
             width={160}
             height={50}
             className="h-[42px] w-auto object-contain transition-all duration-300"
-            style={scrolled ? { mixBlendMode: "multiply" } : { filter: "brightness(0) invert(1)" }}
             priority
           />
         </Link>
