@@ -55,7 +55,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Content */}
             <div>
-              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-teal-500/15 text-teal-700 text-[11px] font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm">
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-teal-500/20 text-white text-[11px] font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm border border-teal-400/30">
                 ✦ Din inima meșterilor români
               </span>
               <h1 className="text-[clamp(36px,5vw,64px)] font-bold leading-[1.12] mb-5 drop-shadow-md">

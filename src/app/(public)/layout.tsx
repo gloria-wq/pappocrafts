@@ -19,7 +19,7 @@ export default function PublicLayout({
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Overlay: light enough to keep video visible, enough for readability */}
-        <div className="absolute inset-0 bg-white/20" />
+        <div className="absolute inset-0 bg-[#A26E73]/55" />
       </div>
 
       <Navigation />

@@ -1,11 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { ShoppingCart, Menu, X, Moon, User } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import Logo from "@/components/Logo";
 
 const NAV_LINKS = [
   { href: "/magazin", label: "Colecție" },
@@ -18,7 +18,6 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const { totalItems } = useCart();
   const pathname = usePathname();
-  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -27,23 +26,22 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const transparent = isHome && !scrolled;
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        transparent
-          ? "bg-transparent"
-          : "bg-white/95 backdrop-blur shadow-sm"
+        scrolled ? "bg-white/90 backdrop-blur shadow-sm" : "bg-transparent"
       }`}
     >
       <nav className="max-w-[1200px] mx-auto px-7 flex items-center justify-between h-[72px]">
-        {/* Logo */}
+        {/* Logo image */}
         <Link href="/" className="flex items-center shrink-0">
-          <Logo
-            color={transparent ? "white" : "#00263A"}
-            accentColor="#00BEC6"
-            className="h-[40px] w-auto"
+          <Image
+            src="/logo.png"
+            alt="PappoCrafts"
+            width={160}
+            height={50}
+            className="h-[42px] w-auto object-contain"
+            priority
           />
         </Link>
 
@@ -56,13 +54,13 @@ export default function Navigation() {
                 key={l.href}
                 href={l.href}
                 className={`px-[18px] py-2 rounded-full text-[13px] font-semibold transition-all ${
-                  transparent
+                  scrolled
                     ? active
-                      ? "text-white bg-white/15"
-                      : "text-white/85 hover:text-white hover:bg-white/15"
-                    : active
                       ? "text-russet-500 bg-russet-50"
                       : "text-navy-700 hover:text-russet-500 hover:bg-russet-50"
+                    : active
+                      ? "text-white bg-white/20"
+                      : "text-white/90 hover:text-white hover:bg-white/15"
                 }`}
               >
                 {l.label}
@@ -75,9 +73,9 @@ export default function Navigation() {
         <div className="flex items-center gap-1">
           <button
             className={`hidden md:flex p-2.5 rounded-full transition-all ${
-              transparent
-                ? "text-white/85 hover:bg-white/15 hover:text-white"
-                : "text-navy-700 hover:text-russet-500 hover:bg-russet-50"
+              scrolled
+                ? "text-navy-700 hover:text-russet-500 hover:bg-russet-50"
+                : "text-white/90 hover:bg-white/15 hover:text-white"
             }`}
             aria-label="Mod întunecat"
           >
@@ -86,20 +84,20 @@ export default function Navigation() {
           <Link
             href="/admin"
             className={`hidden md:flex p-2.5 rounded-full transition-all ${
-              transparent
-                ? "text-white/85 hover:bg-white/15 hover:text-white"
-                : "text-navy-700 hover:text-russet-500 hover:bg-russet-50"
+              scrolled
+                ? "text-navy-700 hover:text-russet-500 hover:bg-russet-50"
+                : "text-white/90 hover:bg-white/15 hover:text-white"
             }`}
-            aria-label="Cont"
+            aria-label="Admin"
           >
             <User size={18} />
           </Link>
           <Link
             href="/cos"
             className={`relative p-2.5 rounded-full transition-all ${
-              transparent
-                ? "text-white/85 hover:bg-white/15 hover:text-white"
-                : "text-navy-700 hover:text-russet-500 hover:bg-russet-50"
+              scrolled
+                ? "text-navy-700 hover:text-russet-500 hover:bg-russet-50"
+                : "text-white/90 hover:bg-white/15 hover:text-white"
             }`}
           >
             <ShoppingCart size={18} />
@@ -112,9 +110,9 @@ export default function Navigation() {
           <button
             onClick={() => setOpen(!open)}
             className={`md:hidden p-2.5 rounded-full transition-all ${
-              transparent
-                ? "text-white/85 hover:bg-white/15"
-                : "text-navy-700 hover:bg-russet-50"
+              scrolled
+                ? "text-navy-700 hover:bg-russet-50"
+                : "text-white/90 hover:bg-white/15"
             }`}
             aria-label="Meniu"
           >
