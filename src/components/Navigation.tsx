@@ -36,11 +36,13 @@ export default function Navigation() {
         {/* Logo image */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/logo.png"
+            src="/logo-white.png"
             alt="PappoCrafts"
             width={160}
             height={50}
-            className="h-[42px] w-auto object-contain"
+            className={`h-[42px] w-auto object-contain transition-all duration-300 ${
+              scrolled ? "brightness-0" : "brightness-100"
+            }`}
             priority
           />
         </Link>

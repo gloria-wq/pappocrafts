@@ -80,11 +80,10 @@ export default async function HomePage() {
                   Explorează colecția
                 </Link>
                 <Link
-                  href="https://pappocrafts.ro"
-                  target="_blank"
-                  className="inline-flex items-center gap-1.5 px-6 py-3 text-sm font-semibold text-navy-700 bg-white/60 backdrop-blur-sm border border-white/50 rounded-full hover:bg-white/80 transition-all"
+                  href="/artisans"
+                  className="inline-flex items-center gap-1.5 px-6 py-3 text-sm font-semibold text-white bg-white/20 backdrop-blur-sm border border-white/30 rounded-full hover:bg-white/30 transition-all"
                 >
-                  Site original →
+                  Discover the artisans&apos; stories →
                 </Link>
               </div>
             </div>
