@@ -35,21 +35,18 @@ const CARDS = [
     title: "Tradiție meșteșugărească",
     desc: "Fiecare piesă este modelată manual, purtând secole de meșteșug românesc transmis din generație în generație.",
     titleColor: "#FDD2BC",
-    blendMode: "multiply" as const,
   },
   {
     icon: "/icons/natural.png",
     title: "Materiale naturale",
     desc: "Lucrăm exclusiv cu lemn de tei, cupru de 99,97% puritate, răchită naturală și textile organice — nimic artificial.",
     titleColor: "#A26E73",
-    blendMode: "multiply" as const,
   },
   {
     icon: "/icons/handmade.png",
     title: "Făcut cu grijă",
     desc: "Fiecare obiect necesită ore, uneori zile de muncă. Acel timp și acea intenție se simt când ții în mâini o piesă PappoCrafts.",
     titleColor: "#00BEC6",
-    blendMode: "screen" as const,
   },
 ];
 
@@ -125,7 +122,6 @@ export default function ArtisansPage() {
                   alt={c.title}
                   fill
                   className="object-contain"
-                  style={{ mixBlendMode: c.blendMode }}
                 />
               </div>
               <h3
