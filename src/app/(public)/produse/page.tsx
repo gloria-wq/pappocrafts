@@ -59,8 +59,8 @@ export default async function CategoriesPage() {
                 href={`/produse/${cat.slug}`}
                 className="group bg-white rounded-2xl p-8 border border-warm-300/40 hover:border-russet-300 hover:shadow-lg transition-all text-center"
               >
-                <div className="w-14 h-14 rounded-2xl bg-russet-50 flex items-center justify-center mx-auto mb-4 group-hover:bg-russet-100 transition-colors">
-                  <Icon size={28} className="text-russet-500" />
+                <div className="w-14 h-14 rounded-2xl bg-teal-50 flex items-center justify-center mx-auto mb-4 group-hover:bg-teal-100 transition-colors">
+                  <Icon size={28} className="text-teal-500" />
                 </div>
                 <h3 className="text-[15px] font-semibold text-navy-700 group-hover:text-russet-500 transition-colors">
                   {cat.name}

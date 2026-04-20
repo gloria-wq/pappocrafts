@@ -139,8 +139,8 @@ export default async function HomePage() {
               key={v.title}
               className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/50 hover:shadow-lg transition-all hover:bg-white/75"
             >
-              <div className="w-10 h-10 rounded-xl bg-russet-50 flex items-center justify-center mb-3">
-                <v.icon size={20} className="text-russet-500" />
+              <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center mb-3">
+                <v.icon size={20} className="text-teal-500" />
               </div>
               <h3 className="text-[14px] font-bold text-navy-700 mb-1.5 font-[var(--font-body)]">
                 {v.title}
@@ -245,8 +245,8 @@ export default async function HomePage() {
                 href={`/produse/${cat.slug}`}
                 className="group bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/50 hover:border-russet-300 hover:shadow-lg hover:bg-white/75 transition-all text-center"
               >
-                <div className="w-12 h-12 rounded-xl bg-russet-50 flex items-center justify-center mx-auto mb-3 group-hover:bg-russet-100 transition-colors">
-                  <Icon size={24} className="text-russet-500" />
+                <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mx-auto mb-3 group-hover:bg-teal-100 transition-colors">
+                  <Icon size={24} className="text-teal-500" />
                 </div>
                 <h3 className="font-semibold text-navy-700 group-hover:text-russet-500 transition-colors text-sm">
                   {cat.name}

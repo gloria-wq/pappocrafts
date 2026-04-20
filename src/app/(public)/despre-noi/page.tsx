@@ -89,8 +89,8 @@ export default async function AboutPage() {
           <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {MATERIALS.map((m) => (
               <div key={m.name} className="text-center bg-white rounded-2xl p-5 border border-warm-300/40">
-                <div className="w-10 h-10 rounded-xl bg-russet-50 flex items-center justify-center mx-auto mb-2">
-                  <m.icon size={20} className="text-russet-500" />
+                <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center mx-auto mb-2">
+                  <m.icon size={20} className="text-teal-500" />
                 </div>
                 <h4 className="font-semibold text-navy-700 text-sm">{m.name}</h4>
                 <p className="text-[11px] text-navy-400 mt-1 font-light">{m.detail}</p>
