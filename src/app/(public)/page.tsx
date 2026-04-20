@@ -245,12 +245,23 @@ export default async function HomePage() {
       {/* ─── ARTISANS ─── */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-7">
-          <SectionHeading
-            eyebrow="✦ Mâinile care creează"
-            title="Meșterii Noștri"
-            description="Parteneri, prieteni, oameni care pun suflet în ceea ce fac."
-            light
-          />
+          <div className="text-center">
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em] block mb-2.5 text-teal-300">
+              ✦ Mâinile care creează
+            </span>
+            <h2
+              className="text-[clamp(26px,3.8vw,42px)] font-bold leading-[1.15]"
+              style={{ color: "#FDD2BC" }}
+            >
+              Meșterii Noștri
+            </h2>
+            <p
+              className="mt-3 text-[15px] font-light leading-relaxed max-w-lg mx-auto"
+              style={{ color: "#FDD2BC" }}
+            >
+              Parteneri, prieteni, oameni care pun suflet în ceea ce fac.
+            </p>
+          </div>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {artisans.map((a) => (
               <div

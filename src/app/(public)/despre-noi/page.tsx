@@ -41,9 +41,9 @@ export default async function AboutPage() {
             style={{ color: "#FDD2BC", fontFamily: "var(--font-heading)" }}
           >
             Povestea&nbsp;<em className="not-italic">PappoCrafts</em>
-            &nbsp;&nbsp;✦&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             Povestea&nbsp;<em className="not-italic">PappoCrafts</em>
-            &nbsp;&nbsp;✦&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </span>
         </div>
         <p className="text-warm-300/70 text-[17px] font-light mt-6 max-w-xl mx-auto leading-[1.75]">
