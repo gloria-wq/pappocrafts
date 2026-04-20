@@ -35,9 +35,8 @@ export default async function AboutPage() {
         <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-russet-300 block mb-2.5">
           ✦ Despre PappoCrafts
         </span>
-        <h1 className="text-[clamp(36px,5vw,60px)] font-bold text-white leading-[1.08] max-w-2xl mx-auto">
-          Povestea{" "}
-          <em className="text-warm-300 not-italic">PappoCrafts</em>
+        <h1 className="text-[clamp(36px,5vw,60px)] font-bold text-warm-300 leading-[1.08] mx-auto">
+          PappoCrafts
         </h1>
         <p className="text-warm-300/70 text-[17px] font-light mt-6 max-w-xl mx-auto leading-[1.75]">
           Nu vindem obiecte. Aducem în casele oamenilor fragmente dintr-o lume
@@ -47,8 +46,8 @@ export default async function AboutPage() {
 
       {/* Why */}
       <section className="max-w-3xl mx-auto px-7 py-24 text-center">
-        <SectionHeading eyebrow="✦ 100% Lucrat Manual" title="De ce existăm" />
-        <div className="mt-8 space-y-5 text-navy-500 text-[15px] leading-[1.85] font-light">
+        <SectionHeading eyebrow="✦ 100% Lucrat Manual" title="De ce existăm" light />
+        <div className="mt-8 space-y-5 text-[15px] leading-[1.85] font-light" style={{ color: "#FDD2BC" }}>
           <p>
             PappoCrafts s-a născut dintr-o convingere simplă: meșteșugul
             tradițional românesc merită să trăiască. Nu în muzee, nu în vitrine —

@@ -147,6 +147,7 @@ export default async function HomePage() {
           eyebrow="✦ Alese pentru tine"
           title="Favorite din Atelier"
           description="Piese în care suntem mândri. Fiecare e creată la comandă, cu materiale naturale."
+          light
         />
         <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
           {featured.map((p) => (

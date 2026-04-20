@@ -33,33 +33,44 @@ export default function ShopGrid() {
   return (
     <div>
       {/* Filters */}
-      <div className="flex flex-col sm:flex-row gap-3 mb-8">
-        <div className="relative flex-1">
+      <div className="flex flex-col gap-3 mb-8">
+        <div className="relative max-w-md">
           <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-navy-300" />
           <input
             type="text"
             placeholder="Caută produse..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-11 pr-4 py-3 bg-white border border-warm-300/80 rounded-full text-[13px] font-light text-navy-700 focus:outline-none focus:border-russet-300 transition-colors"
+            className="w-full pl-11 pr-4 py-3 bg-white/80 backdrop-blur-sm border border-warm-300/80 rounded-full text-[13px] font-light text-navy-700 focus:outline-none focus:border-russet-300 transition-colors"
           />
         </div>
-        <div className="flex gap-2">
-          {[{ value: "", label: "Toate" }, ...categories.map((c) => ({ value: c.slug, label: c.name }))].map(
-            (f) => (
-              <button
-                key={f.value}
-                onClick={() => setCategoryFilter(f.value)}
-                className={`px-[18px] py-2 rounded-full text-[12px] font-semibold border transition-all ${
-                  categoryFilter === f.value
-                    ? "bg-russet-500 text-white border-russet-500"
-                    : "bg-white text-navy-700 border-warm-300/80 hover:border-russet-300"
-                }`}
-              >
-                {f.label}
-              </button>
-            )
-          )}
+        {/* Category pills — wrapping grid */}
+        <div className="flex flex-wrap gap-2">
+          {[
+            { value: "", label: "Toate" },
+            { value: "lemn", label: "Obiecte din lemn lucrate manual" },
+            { value: "rachita", label: "Obiecte împletite din răchită și papură" },
+            { value: "cupru", label: "Obiecte din cupru, alamă și bronz" },
+            { value: "cadouri", label: "Cadouri tradiționale" },
+            { value: "textile", label: "Textile și modă tradițională" },
+            { value: "ceramica", label: "Ceramică și lut tradițional" },
+            { value: "accesorii", label: "Accesorii eco și naturale" },
+            ...categories
+              .filter(c => !["lemn","rachita","cupru","cadouri","textile","ceramica","accesorii"].includes(c.slug))
+              .map((c) => ({ value: c.slug, label: c.name })),
+          ].map((f) => (
+            <button
+              key={f.value}
+              onClick={() => setCategoryFilter(f.value)}
+              className={`px-4 py-2 rounded-full text-[11px] font-semibold border transition-all uppercase tracking-wide ${
+                categoryFilter === f.value
+                  ? "bg-russet-500 text-white border-russet-500"
+                  : "bg-white/70 backdrop-blur-sm text-navy-700 border-warm-300/80 hover:border-russet-300 hover:bg-white"
+              }`}
+            >
+              {f.label}
+            </button>
+          ))}
         </div>
       </div>
 
