@@ -127,15 +127,15 @@ export default async function HomePage() {
           {VALUES.map((v) => (
             <div
               key={v.title}
-              className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:shadow-lg transition-all hover:bg-white/15"
+              className="bg-white rounded-2xl p-6 border border-warm-300/40 hover:shadow-lg transition-all hover:border-russet-200"
             >
-              <div className="w-10 h-10 rounded-xl bg-russet-500/20 flex items-center justify-center mb-3">
-                <v.icon size={20} className="text-russet-300" />
+              <div className="w-10 h-10 rounded-xl bg-russet-50 flex items-center justify-center mb-3">
+                <v.icon size={20} className="text-russet-500" />
               </div>
-              <h3 className="text-[14px] font-bold mb-1.5 font-[var(--font-body)]" style={{ color: "#FDD2BC" }}>
+              <h3 className="text-[14px] font-bold text-navy-700 mb-1.5 font-[var(--font-body)]">
                 {v.title}
               </h3>
-              <p className="text-[12px] font-light leading-relaxed" style={{ color: "#FDD2BC" }}>
+              <p className="text-[12px] text-navy-500 font-light leading-relaxed">
                 {v.desc}
               </p>
             </div>
@@ -231,13 +231,13 @@ export default async function HomePage() {
             <Link
               key={cat.id}
               href={`/produse/${cat.slug}`}
-              className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 hover:shadow-lg hover:bg-white/15 transition-all text-center"
+              className="group bg-white rounded-2xl p-6 border border-warm-300/40 hover:border-russet-300 hover:shadow-lg transition-all text-center"
             >
               <span className="text-3xl block mb-3">{cat.icon ?? "📦"}</span>
-              <h3 className="font-semibold transition-colors text-sm" style={{ color: "#FDD2BC" }}>
+              <h3 className="font-semibold text-navy-700 group-hover:text-russet-500 transition-colors text-sm">
                 {cat.name}
               </h3>
-              <p className="text-[12px] mt-1 font-light" style={{ color: "#FDD2BC" }}>
+              <p className="text-[12px] text-navy-500 mt-1 font-light">
                 {cat.description}
               </p>
             </Link>
@@ -269,16 +269,16 @@ export default async function HomePage() {
             {artisans.map((a) => (
               <div
                 key={a.id}
-                className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center hover:bg-white/15 transition-all"
+                className="bg-white rounded-2xl p-6 border border-warm-300/40 text-center hover:shadow-lg hover:border-russet-200 transition-all"
               >
-                <div className="w-20 h-20 rounded-full bg-russet-500/30 mx-auto flex items-center justify-center text-2xl font-bold" style={{ color: "#FDD2BC" }}>
+                <div className="w-20 h-20 rounded-full bg-russet-50 mx-auto flex items-center justify-center text-2xl font-bold text-russet-500">
                   {a.name.charAt(0)}
                 </div>
-                <h3 className="mt-4 font-semibold text-sm" style={{ color: "#FDD2BC" }}>{a.name}</h3>
-                <p className="text-[12px] text-teal-400 font-semibold mt-1">{a.role}</p>
+                <h3 className="mt-4 font-semibold text-navy-700 text-sm">{a.name}</h3>
+                <p className="text-[12px] text-teal-600 font-semibold mt-1">{a.role}</p>
                 {a.quote && (
-                  <blockquote className="mt-4 text-[13px] italic leading-relaxed font-light" style={{ color: "#FDD2BC" }}>
-                    <Quote size={12} className="inline mr-1 text-teal-400" />
+                  <blockquote className="mt-4 text-[13px] text-navy-500 italic leading-relaxed font-light">
+                    <Quote size={12} className="inline mr-1 text-russet-300" />
                     {a.quote}
                   </blockquote>
                 )}
@@ -300,7 +300,7 @@ export default async function HomePage() {
             {reviews.map((r) => (
               <div
                 key={r.id}
-                className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 hover:bg-white/15 transition-all"
+                className="bg-white rounded-2xl p-5 border border-warm-300/40 hover:shadow-lg hover:border-russet-200 transition-all"
               >
                 <div className="flex items-center gap-0.5 mb-3 text-amber-400">
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -312,18 +312,18 @@ export default async function HomePage() {
                   ))}
                 </div>
                 {r.content && (
-                  <p className="text-[13px] line-clamp-3 mb-4 font-light leading-relaxed" style={{ color: "#FDD2BC" }}>
+                  <p className="text-[13px] text-navy-600 line-clamp-3 mb-4 font-light leading-relaxed">
                     {r.content}
                   </p>
                 )}
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-russet-500/30 flex items-center justify-center text-[11px] font-bold" style={{ color: "#FDD2BC" }}>
+                  <div className="w-8 h-8 rounded-full bg-russet-50 flex items-center justify-center text-[11px] font-bold text-russet-500">
                     {r.author_name.charAt(0)}
                   </div>
                   <div>
-                    <p className="text-[13px] font-semibold" style={{ color: "#FDD2BC" }}>{r.author_name}</p>
+                    <p className="text-[13px] font-semibold text-navy-700">{r.author_name}</p>
                     {r.verified && (
-                      <p className="text-[10px] text-teal-400 font-semibold">proprietar verificat</p>
+                      <p className="text-[10px] text-teal-600 font-semibold">proprietar verificat</p>
                     )}
                   </div>
                 </div>
