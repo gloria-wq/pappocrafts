@@ -1,8 +1,18 @@
 import Link from "next/link";
-import { Star, Quote, ChevronRight, HandMetal, Leaf, Truck, Palette } from "lucide-react";
+import { Star, Quote, ChevronRight, HandMetal, Leaf, Truck, Palette, Trees, Layers, Hammer, Gift, Shirt, FlaskConical, Package } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import SectionHeading from "@/components/SectionHeading";
+
+const CATEGORY_ICONS: Record<string, LucideIcon> = {
+  lemn: Trees,
+  rachita: Layers,
+  cupru: Hammer,
+  cadouri: Gift,
+  textile: Shirt,
+  ceramica: FlaskConical,
+  accesorii: Leaf,
+};
 import {
   getFeaturedProducts,
   getCategories,
@@ -127,7 +137,7 @@ export default async function HomePage() {
           {VALUES.map((v) => (
             <div
               key={v.title}
-              className="bg-white rounded-2xl p-6 border border-warm-300/40 hover:shadow-lg transition-all hover:border-russet-200"
+              className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/50 hover:shadow-lg transition-all hover:bg-white/75"
             >
               <div className="w-10 h-10 rounded-xl bg-russet-50 flex items-center justify-center mb-3">
                 <v.icon size={20} className="text-russet-500" />
@@ -227,21 +237,26 @@ export default async function HomePage() {
           light
         />
         <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {categories.map((cat) => (
-            <Link
-              key={cat.id}
-              href={`/produse/${cat.slug}`}
-              className="group bg-white rounded-2xl p-6 border border-warm-300/40 hover:border-russet-300 hover:shadow-lg transition-all text-center"
-            >
-              <span className="text-3xl block mb-3">{cat.icon ?? "📦"}</span>
-              <h3 className="font-semibold text-navy-700 group-hover:text-russet-500 transition-colors text-sm">
-                {cat.name}
-              </h3>
-              <p className="text-[12px] text-navy-500 mt-1 font-light">
-                {cat.description}
-              </p>
-            </Link>
-          ))}
+          {categories.map((cat) => {
+            const Icon = CATEGORY_ICONS[cat.slug] ?? Package;
+            return (
+              <Link
+                key={cat.id}
+                href={`/produse/${cat.slug}`}
+                className="group bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/50 hover:border-russet-300 hover:shadow-lg hover:bg-white/75 transition-all text-center"
+              >
+                <div className="w-12 h-12 rounded-xl bg-russet-50 flex items-center justify-center mx-auto mb-3 group-hover:bg-russet-100 transition-colors">
+                  <Icon size={24} className="text-russet-500" />
+                </div>
+                <h3 className="font-semibold text-navy-700 group-hover:text-russet-500 transition-colors text-sm">
+                  {cat.name}
+                </h3>
+                <p className="text-[12px] text-navy-500 mt-1 font-light">
+                  {cat.description}
+                </p>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
@@ -269,7 +284,7 @@ export default async function HomePage() {
             {artisans.map((a) => (
               <div
                 key={a.id}
-                className="bg-white rounded-2xl p-6 border border-warm-300/40 text-center hover:shadow-lg hover:border-russet-200 transition-all"
+                className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/50 text-center hover:shadow-lg hover:bg-white/75 transition-all"
               >
                 <div className="w-20 h-20 rounded-full bg-russet-50 mx-auto flex items-center justify-center text-2xl font-bold text-russet-500">
                   {a.name.charAt(0)}
@@ -300,7 +315,7 @@ export default async function HomePage() {
             {reviews.map((r) => (
               <div
                 key={r.id}
-                className="bg-white rounded-2xl p-5 border border-warm-300/40 hover:shadow-lg hover:border-russet-200 transition-all"
+                className="bg-white/60 backdrop-blur-sm rounded-2xl p-5 border border-white/50 hover:shadow-lg hover:bg-white/75 transition-all"
               >
                 <div className="flex items-center gap-0.5 mb-3 text-amber-400">
                   {Array.from({ length: 5 }).map((_, i) => (
