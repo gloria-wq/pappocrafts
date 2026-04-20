@@ -14,6 +14,30 @@
   --color-russet-800: #52373A;
   --color-russet-900: #362426;
 
+  /* brand = alias for russet (used in admin panel) */
+  --color-brand-50:  #F5ECED;
+  --color-brand-100: #E8D4D6;
+  --color-brand-200: #D4B0B4;
+  --color-brand-300: #C4959A;
+  --color-brand-400: #B37E83;
+  --color-brand-500: #A26E73;
+  --color-brand-600: #8A5D62;
+  --color-brand-700: #6E4A4E;
+  --color-brand-800: #52373A;
+  --color-brand-900: #362426;
+
+  /* earth = warm neutral (used in admin panel) */
+  --color-earth-50:  #FAF7F5;
+  --color-earth-100: #F3EDE9;
+  --color-earth-200: #E8DDD7;
+  --color-earth-300: #D6C8BF;
+  --color-earth-400: #B8A097;
+  --color-earth-500: #9A786E;
+  --color-earth-600: #7C5A50;
+  --color-earth-700: #5E3C32;
+  --color-earth-800: #3D2219;
+  --color-earth-900: #1E0E08;
+
   --color-teal-50: #E0F7F8;
   --color-teal-100: #B3ECEF;
   --color-teal-200: #80E1E5;
