@@ -42,7 +42,7 @@ export default async function CategoriesPage() {
             className="marquee-text text-[clamp(48px,7vw,80px)] font-bold leading-[1.08]"
             style={{ color: "#FDD2BC", fontFamily: "var(--font-heading)" }}
           >
-            Categorii de Produse&nbsp;&nbsp;✦&nbsp;&nbsp;Categorii de Produse&nbsp;&nbsp;✦&nbsp;&nbsp;
+            Categorii de Produse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Categorii de Produse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </span>
         </div>
         <p className="text-warm-300/70 text-[15px] font-light mt-3 max-w-lg mx-auto">
