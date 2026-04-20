@@ -33,19 +33,29 @@ export default function Navigation() {
       }`}
     >
       <nav className="max-w-[1200px] mx-auto px-7 flex items-center justify-between h-[72px]">
-        {/* Logo image — transparent background, no shadow */}
-        <Link href="/" className="flex items-center shrink-0 bg-transparent">
-          <Image
-            src="/logo-white.png"
-            alt="PappoCrafts"
-            width={160}
-            height={50}
-            className={`h-[42px] w-auto object-contain transition-all duration-300 ${
-              scrolled ? "brightness-0" : "brightness-100"
-            }`}
-            style={{ background: "none", boxShadow: "none" }}
-            priority
-          />
+        {/* Logo — mix-blend-mode removes the black PNG background */}
+        <Link href="/" className="flex items-center shrink-0">
+          {scrolled ? (
+            <Image
+              src="/logo.png"
+              alt="PappoCrafts"
+              width={160}
+              height={50}
+              className="h-[42px] w-auto object-contain"
+              style={{ mixBlendMode: "multiply" }}
+              priority
+            />
+          ) : (
+            <Image
+              src="/logo-white.png"
+              alt="PappoCrafts"
+              width={160}
+              height={50}
+              className="h-[42px] w-auto object-contain"
+              style={{ mixBlendMode: "screen" }}
+              priority
+            />
+          )}
         </Link>
 
         {/* Desktop Nav */}

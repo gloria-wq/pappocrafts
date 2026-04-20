@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, Leaf, Heart, Hammer } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 
 const ARTISANS = [
   {
@@ -30,17 +31,20 @@ const ARTISANS = [
 
 const CARDS = [
   {
-    icon: <Hammer size={28} className="text-russet-500" />,
+    icon: "/icons/responsible.png",
+    label: "responsible",
     title: "Tradiție meșteșugărească",
     desc: "Fiecare piesă este modelată manual, purtând secole de meșteșug românesc transmis din generație în generație.",
   },
   {
-    icon: <Leaf size={28} className="text-teal-500" />,
+    icon: "/icons/natural.png",
+    label: "natural",
     title: "Materiale naturale",
     desc: "Lucrăm exclusiv cu lemn de tei, cupru de 99,97% puritate, răchită naturală și textile organice — nimic artificial.",
   },
   {
-    icon: <Heart size={28} className="text-russet-400" />,
+    icon: "/icons/handmade.png",
+    label: "handmade",
     title: "Făcut cu grijă",
     desc: "Fiecare obiect necesită ore, uneori zile de muncă. Acel timp și acea intenție se simt când ții în mâini o piesă PappoCrafts.",
   },
@@ -65,7 +69,7 @@ export default function ArtisansPage() {
           <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-teal-500/20 text-white text-[11px] font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm border border-teal-400/30">
             ✦ Din inima meșterilor români
           </span>
-          <h1 className="text-[clamp(36px,5vw,60px)] font-bold text-[#FDD2BC] leading-[1.1] mb-6 drop-shadow-md">
+          <h1 className="text-[clamp(36px,5vw,60px)] font-bold leading-[1.1] mb-6 drop-shadow-md" style={{ color: "#FDD2BC" }}>
             Cunoaște-i pe meșterii noștri
           </h1>
           <p className="text-white text-[17px] leading-[1.8] font-light max-w-[580px] mx-auto">
@@ -81,7 +85,6 @@ export default function ArtisansPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {ARTISANS.map((a) => (
             <div key={a.videoId} className="flex flex-col gap-5">
-              {/* Video embed */}
               <div className="rounded-2xl overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.25)] border border-white/20">
                 {/* Replace this video with the real artisans video */}
                 <iframe
@@ -92,8 +95,6 @@ export default function ArtisansPage() {
                   className="w-full aspect-video"
                 />
               </div>
-
-              {/* Name + quote */}
               <div className="bg-white/60 backdrop-blur-md rounded-2xl px-6 py-5 border border-white/50">
                 <p className="text-[15px] font-bold text-navy-700">{a.name}</p>
                 <p className="text-[12px] text-teal-600 font-semibold mb-3">{a.role}</p>
@@ -112,11 +113,23 @@ export default function ArtisansPage() {
           {CARDS.map((c) => (
             <div
               key={c.title}
-              className="bg-white/60 backdrop-blur-md rounded-2xl p-8 border border-white/50 hover:bg-white/75 hover:shadow-xl transition-all"
+              className="bg-white/60 backdrop-blur-md rounded-2xl p-8 border border-white/50 hover:bg-white/75 hover:shadow-xl transition-all flex flex-col items-center text-center"
             >
-              <div className="mb-5">{c.icon}</div>
-              <h3 className="text-[17px] font-bold text-navy-700 mb-3">{c.title}</h3>
-              <p className="text-[14px] text-navy-600 leading-[1.8] font-light">{c.desc}</p>
+              {/* Brand icon — mix-blend-mode:multiply removes the colored background */}
+              <div className="mb-5 w-[88px] h-[88px] relative">
+                <Image
+                  src={c.icon}
+                  alt={c.label}
+                  fill
+                  className="object-contain"
+                  style={{ mixBlendMode: "multiply" }}
+                />
+              </div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-russet-400 mb-2">
+                {c.label}
+              </p>
+              <h3 className="text-[16px] font-bold text-navy-700 mb-3">{c.title}</h3>
+              <p className="text-[13px] text-navy-600 leading-[1.8] font-light">{c.desc}</p>
             </div>
           ))}
         </div>
