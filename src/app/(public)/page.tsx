@@ -184,7 +184,7 @@ export default async function HomePage() {
             </span>
             <h2 className="text-[clamp(26px,3.8vw,42px)] font-bold leading-[1.15] mb-6" style={{ color: "#FDD2BC" }}>
               Un studio mic cu<br />
-              <em className="not-italic" style={{ color: "#FDD2BC" }}>o inimă mare.</em>
+              <em className="not-italic" style={{ color: "#A26E73" }}>o inimă mare.</em>
             </h2>
             <p className="text-[15px] leading-[1.85] font-light mb-4" style={{ color: "#FDD2BC" }}>
               PappoCrafts s-a născut dintr-o convingere simplă: meșteșugul
