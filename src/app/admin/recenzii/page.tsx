@@ -22,13 +22,31 @@ export default function AdminReviewsPage() {
   useEffect(() => { load(); }, [load]);
 
   const toggleVerified = async (id: string, current: boolean) => {
-    await db.from("reviews").update({ verified: !current }).eq("id", id);
+    const res = await fetch("/api/admin/reviews", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, verified: !current }),
+    });
+    if (!res.ok) {
+      const { error } = await res.json();
+      alert(`Eroare: ${error}`);
+      return;
+    }
     load();
   };
 
   const handleDelete = async (id: string) => {
     if (!confirm("Sigur vrei să ștergi această recenzie?")) return;
-    await db.from("reviews").delete().eq("id", id);
+    const res = await fetch("/api/admin/reviews", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+    if (!res.ok) {
+      const { error } = await res.json();
+      alert(`Eroare: ${error}`);
+      return;
+    }
     load();
   };
 
