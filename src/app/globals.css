@@ -55,6 +55,22 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Marquee animation for Despre hero */
+@keyframes marquee {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+.marquee-track {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-text {
+  display: inline-block;
+  animation: marquee 12s linear infinite;
+}
+
 body {
   font-family: var(--font-body);
   background-color: transparent;

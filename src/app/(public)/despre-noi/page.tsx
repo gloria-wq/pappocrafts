@@ -35,10 +35,17 @@ export default async function AboutPage() {
         <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-russet-300 block mb-2.5">
           ✦ Despre PappoCrafts
         </span>
-        <h1 className="text-[clamp(36px,5vw,60px)] font-bold text-white leading-[1.08] w-full text-center">
-          Povestea{" "}
-          <em className="text-warm-300 not-italic">PappoCrafts</em>
-        </h1>
+        <div className="marquee-track my-4">
+          <span
+            className="marquee-text text-[clamp(48px,7vw,80px)] font-bold leading-[1.08]"
+            style={{ color: "#FDD2BC", fontFamily: "var(--font-heading)" }}
+          >
+            Povestea&nbsp;<em className="not-italic">PappoCrafts</em>
+            &nbsp;&nbsp;✦&nbsp;&nbsp;
+            Povestea&nbsp;<em className="not-italic">PappoCrafts</em>
+            &nbsp;&nbsp;✦&nbsp;&nbsp;
+          </span>
+        </div>
         <p className="text-warm-300/70 text-[17px] font-light mt-6 max-w-xl mx-auto leading-[1.75]">
           Nu vindem obiecte. Aducem în casele oamenilor fragmente dintr-o lume
           care refuză să dispară — lumea meșterilor populari români.
