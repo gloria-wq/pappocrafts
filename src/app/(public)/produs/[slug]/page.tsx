@@ -27,12 +27,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <div className="max-w-[1200px] mx-auto px-7 pt-[100px] pb-16">
-      <nav className="flex items-center gap-2 text-[13px] text-navy-400 mb-8 font-light">
-        <Link href="/" className="hover:text-russet-500 transition-colors">Acasă</Link>
+      <nav className="flex items-center gap-2 text-[13px] mb-8 font-light" style={{ color: "#FDD2BC" }}>
+        <Link href="/" className="hover:opacity-80 transition-opacity">Acasă</Link>
         <span>/</span>
-        <Link href="/magazin" className="hover:text-russet-500 transition-colors">Magazin</Link>
+        <Link href="/magazin" className="hover:opacity-80 transition-opacity">Magazin</Link>
         <span>/</span>
-        <span className="text-navy-700 font-medium line-clamp-1">{product.name}</span>
+        <span className="font-medium line-clamp-1" style={{ color: "#FDD2BC" }}>{product.name}</span>
       </nav>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -62,11 +62,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         {/* Details */}
         <div>
           {product.category && (
-            <span className="text-[11px] font-bold text-russet-400 uppercase tracking-[0.15em]">
+            <span className="text-[11px] font-bold text-teal-400 uppercase tracking-[0.15em]">
               {product.category.name}
             </span>
           )}
-          <h1 className="text-2xl md:text-3xl font-bold text-navy-700 mt-1">{product.name}</h1>
+          <h1 className="text-2xl md:text-3xl font-bold mt-1" style={{ color: "#FDD2BC" }}>{product.name}</h1>
 
           {product.review_count > 0 && (
             <div className="flex items-center gap-2 mt-3">
@@ -75,31 +75,31 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                   <Star key={i} size={15} className={i < Math.round(product.rating_avg) ? "fill-amber-400" : "text-warm-200 fill-warm-200"} />
                 ))}
               </div>
-              <span className="text-[13px] text-navy-400 font-light">
+              <span className="text-[13px] font-light" style={{ color: "#FDD2BC" }}>
                 {product.rating_avg.toFixed(2)} ({product.review_count} recenzii)
               </span>
             </div>
           )}
 
           <div className="mt-6 font-[var(--font-heading)]">
-            <span className="text-[30px] font-bold text-navy-700">{product.price.toFixed(0)}</span>
-            <span className="text-[16px] font-normal text-navy-500 ml-1.5 font-[var(--font-body)]">RON</span>
+            <span className="text-[30px] font-bold" style={{ color: "#FDD2BC" }}>{product.price.toFixed(0)}</span>
+            <span className="text-[16px] font-normal ml-1.5 font-[var(--font-body)]" style={{ color: "#FDD2BC" }}>RON</span>
           </div>
 
           {product.description && (
-            <p className="mt-6 text-navy-500 leading-relaxed text-[15px] font-light">{product.description}</p>
+            <p className="mt-6 leading-relaxed text-[15px] font-light" style={{ color: "#FDD2BC" }}>{product.description}</p>
           )}
 
           {product.artisan && (
-            <div className="mt-5 flex items-center gap-3 p-4 bg-russet-50 rounded-2xl border border-russet-100">
+            <div className="mt-5 flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
               <div className="w-10 h-10 rounded-full bg-russet-200 flex items-center justify-center text-sm font-bold text-russet-700">
                 {product.artisan.name.charAt(0)}
               </div>
               <div>
-                <p className="text-[13px] font-medium text-navy-700">
+                <p className="text-[13px] font-medium" style={{ color: "#FDD2BC" }}>
                   Confecționat de {product.artisan.name}
                 </p>
-                <p className="text-[11px] text-russet-500 font-light">{product.artisan.role}</p>
+                <p className="text-[11px] text-teal-400 font-light">{product.artisan.role}</p>
               </div>
             </div>
           )}
@@ -114,7 +114,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               { icon: Shield, label: "Plată securizată" },
               { icon: RotateCcw, label: "Retur 14 zile" },
             ].map((item) => (
-              <div key={item.label} className="flex flex-col items-center gap-1.5 text-navy-400">
+              <div key={item.label} className="flex flex-col items-center gap-1.5" style={{ color: "#FDD2BC" }}>
                 <item.icon size={18} />
                 <span className="text-[11px] font-light">{item.label}</span>
               </div>
