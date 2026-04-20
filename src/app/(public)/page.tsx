@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Star, Quote, ChevronRight } from "lucide-react";
+import { Star, Quote, ChevronRight, HandMetal, Leaf, Truck, Palette } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import SectionHeading from "@/components/SectionHeading";
 import {
@@ -9,24 +10,24 @@ import {
   getRecentReviews,
 } from "@/lib/get-data";
 
-const VALUES = [
+const VALUES: { icon: LucideIcon; title: string; desc: string }[] = [
   {
-    icon: "🤚",
+    icon: HandMetal,
     title: "100% Handmade",
     desc: "Fiecare obiect este creat manual de meșteșugari cu experiență.",
   },
   {
-    icon: "🌿",
+    icon: Leaf,
     title: "Materiale naturale",
     desc: "Lemn, cupru, rachită, textile — materii prime curate.",
   },
   {
-    icon: "⚡",
+    icon: Truck,
     title: "Livrare 24-48h",
     desc: "Expediere rapidă prin curier în toată România.",
   },
   {
-    icon: "🎨",
+    icon: Palette,
     title: "Personalizare",
     desc: "Personalizări unice, adaptate dorințelor tale.",
   },
@@ -128,7 +129,9 @@ export default async function HomePage() {
               key={v.title}
               className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:shadow-lg transition-all hover:bg-white/15"
             >
-              <span className="text-2xl block mb-3">{v.icon}</span>
+              <div className="w-10 h-10 rounded-xl bg-russet-500/20 flex items-center justify-center mb-3">
+                <v.icon size={20} className="text-russet-300" />
+              </div>
               <h3 className="text-[14px] font-bold mb-1.5 font-[var(--font-body)]" style={{ color: "#FDD2BC" }}>
                 {v.title}
               </h3>
