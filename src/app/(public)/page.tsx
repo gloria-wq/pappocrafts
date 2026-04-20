@@ -96,22 +96,21 @@ export default async function HomePage() {
                   className={`rounded-2xl p-6 text-center border backdrop-blur-md transition-shadow hover:shadow-lg ${
                     s.teal
                       ? "bg-teal-500/20 border-teal-300/50"
-                      : "bg-white/60 border-white/50"
+                      : "bg-white/20 border-white/30"
                   }`}
                 >
                   <div
-                    className={`text-[32px] font-bold leading-none mb-1 font-[var(--font-heading)] ${
-                      s.teal ? "text-teal-700" : "text-navy-700"
-                    }`}
+                    className="text-[32px] font-bold leading-none mb-1 font-[var(--font-heading)]"
+                    style={{ color: s.teal ? "#4DD4DA" : "#FDD2BC" }}
                   >
                     {s.value}
                   </div>
                   {s.extra && (
-                    <div className="text-amber-500 text-[13px] mb-1">
+                    <div className="text-amber-400 text-[13px] mb-1">
                       {s.extra}
                     </div>
                   )}
-                  <div className="text-[12px] text-navy-500 font-medium">
+                  <div className="text-[12px] font-medium" style={{ color: "#FDD2BC" }}>
                     {s.label}
                   </div>
                 </div>
@@ -127,13 +126,13 @@ export default async function HomePage() {
           {VALUES.map((v) => (
             <div
               key={v.title}
-              className="bg-white/60 backdrop-blur-md rounded-2xl p-6 border border-white/50 hover:shadow-lg transition-all hover:bg-white/75"
+              className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:shadow-lg transition-all hover:bg-white/15"
             >
               <span className="text-2xl block mb-3">{v.icon}</span>
-              <h3 className="text-[14px] font-bold text-navy-700 mb-1.5 font-[var(--font-body)]">
+              <h3 className="text-[14px] font-bold mb-1.5 font-[var(--font-body)]" style={{ color: "#FDD2BC" }}>
                 {v.title}
               </h3>
-              <p className="text-[12px] text-navy-500 font-light leading-relaxed">
+              <p className="text-[12px] font-light leading-relaxed" style={{ color: "#FDD2BC" }}>
                 {v.desc}
               </p>
             </div>
@@ -157,7 +156,8 @@ export default async function HomePage() {
         <div className="mt-10 text-center">
           <Link
             href="/magazin"
-            className="inline-flex items-center gap-2 text-navy-700 font-semibold text-sm hover:text-russet-500 transition-colors"
+            className="inline-flex items-center gap-2 font-semibold text-sm transition-colors"
+            style={{ color: "#FDD2BC" }}
           >
             Vezi toate produsele <ChevronRight size={15} />
           </Link>
@@ -179,19 +179,19 @@ export default async function HomePage() {
           </div>
 
           <div className="pl-0 lg:pl-4">
-            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-russet-500 block mb-2.5">
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-400 block mb-2.5">
               ✦ Povestea noastră
             </span>
-            <h2 className="text-[clamp(26px,3.8vw,42px)] font-bold text-navy-700 leading-[1.15] mb-6">
+            <h2 className="text-[clamp(26px,3.8vw,42px)] font-bold leading-[1.15] mb-6" style={{ color: "#FDD2BC" }}>
               Un studio mic cu<br />
-              <em className="text-russet-500 not-italic">o inimă mare.</em>
+              <em className="not-italic" style={{ color: "#FDD2BC" }}>o inimă mare.</em>
             </h2>
-            <p className="text-navy-600 text-[15px] leading-[1.85] font-light mb-4">
+            <p className="text-[15px] leading-[1.85] font-light mb-4" style={{ color: "#FDD2BC" }}>
               PappoCrafts s-a născut dintr-o convingere simplă: meșteșugul
               tradițional românesc merită să trăiască. Nu în muzee — ci în
               casele oamenilor, în bucătării, pe mese, în viața de zi cu zi.
             </p>
-            <p className="text-navy-600 text-[15px] leading-[1.85] font-light mb-8">
+            <p className="text-[15px] leading-[1.85] font-light mb-8" style={{ color: "#FDD2BC" }}>
               Folosim materii prime curate: lemn de tei, cupru alimentar cu
               puritate de 99,97%, răchită naturală. Fiecare obiect a trecut
               prin mâinile unui meșter — niciodată printr-o fabrică.
@@ -205,7 +205,8 @@ export default async function HomePage() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-700 hover:text-russet-500 transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
+                style={{ color: "#FDD2BC" }}
               >
                 Contactează-ne <ChevronRight size={15} />
               </Link>
@@ -220,19 +221,20 @@ export default async function HomePage() {
           eyebrow="✦ Tradiție vie"
           title="Explorează pe Categorii"
           description="Materiale naturale, mâini dibace, meșteșug autentic."
+          light
         />
         <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {categories.map((cat) => (
             <Link
               key={cat.id}
               href={`/produse/${cat.slug}`}
-              className="group bg-white/60 backdrop-blur-md rounded-2xl p-6 border border-white/50 hover:border-russet-300 hover:shadow-lg hover:bg-white/80 transition-all text-center"
+              className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 hover:shadow-lg hover:bg-white/15 transition-all text-center"
             >
               <span className="text-3xl block mb-3">{cat.icon ?? "📦"}</span>
-              <h3 className="font-semibold text-navy-700 group-hover:text-russet-500 transition-colors text-sm">
+              <h3 className="font-semibold transition-colors text-sm" style={{ color: "#FDD2BC" }}>
                 {cat.name}
               </h3>
-              <p className="text-[12px] text-navy-500 mt-1 font-light">
+              <p className="text-[12px] mt-1 font-light" style={{ color: "#FDD2BC" }}>
                 {cat.description}
               </p>
             </Link>
@@ -247,21 +249,22 @@ export default async function HomePage() {
             eyebrow="✦ Mâinile care creează"
             title="Meșterii Noștri"
             description="Parteneri, prieteni, oameni care pun suflet în ceea ce fac."
+            light
           />
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {artisans.map((a) => (
               <div
                 key={a.id}
-                className="bg-white/60 backdrop-blur-md rounded-2xl p-6 border border-white/50 text-center hover:bg-white/75 transition-all"
+                className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center hover:bg-white/15 transition-all"
               >
-                <div className="w-20 h-20 rounded-full bg-russet-50 mx-auto flex items-center justify-center text-2xl font-bold text-russet-500">
+                <div className="w-20 h-20 rounded-full bg-russet-500/30 mx-auto flex items-center justify-center text-2xl font-bold" style={{ color: "#FDD2BC" }}>
                   {a.name.charAt(0)}
                 </div>
-                <h3 className="mt-4 font-semibold text-navy-700 text-sm">{a.name}</h3>
-                <p className="text-[12px] text-teal-600 font-semibold mt-1">{a.role}</p>
+                <h3 className="mt-4 font-semibold text-sm" style={{ color: "#FDD2BC" }}>{a.name}</h3>
+                <p className="text-[12px] text-teal-400 font-semibold mt-1">{a.role}</p>
                 {a.quote && (
-                  <blockquote className="mt-4 text-[13px] text-navy-500 italic leading-relaxed font-light">
-                    <Quote size={12} className="inline mr-1 text-russet-300" />
+                  <blockquote className="mt-4 text-[13px] italic leading-relaxed font-light" style={{ color: "#FDD2BC" }}>
+                    <Quote size={12} className="inline mr-1 text-teal-400" />
                     {a.quote}
                   </blockquote>
                 )}
@@ -277,12 +280,13 @@ export default async function HomePage() {
           <SectionHeading
             eyebrow="✦ Părerea clienților"
             title="Ce spun clienții noștri"
+            light
           />
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {reviews.map((r) => (
               <div
                 key={r.id}
-                className="bg-white/60 backdrop-blur-md rounded-2xl p-5 border border-white/50 hover:bg-white/75 transition-all"
+                className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 hover:bg-white/15 transition-all"
               >
                 <div className="flex items-center gap-0.5 mb-3 text-amber-400">
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -294,18 +298,18 @@ export default async function HomePage() {
                   ))}
                 </div>
                 {r.content && (
-                  <p className="text-[13px] text-navy-600 line-clamp-3 mb-4 font-light leading-relaxed">
+                  <p className="text-[13px] line-clamp-3 mb-4 font-light leading-relaxed" style={{ color: "#FDD2BC" }}>
                     {r.content}
                   </p>
                 )}
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-russet-50 flex items-center justify-center text-[11px] font-bold text-russet-500">
+                  <div className="w-8 h-8 rounded-full bg-russet-500/30 flex items-center justify-center text-[11px] font-bold" style={{ color: "#FDD2BC" }}>
                     {r.author_name.charAt(0)}
                   </div>
                   <div>
-                    <p className="text-[13px] font-semibold text-navy-700">{r.author_name}</p>
+                    <p className="text-[13px] font-semibold" style={{ color: "#FDD2BC" }}>{r.author_name}</p>
                     {r.verified && (
-                      <p className="text-[10px] text-teal-600 font-semibold">proprietar verificat</p>
+                      <p className="text-[10px] text-teal-400 font-semibold">proprietar verificat</p>
                     )}
                   </div>
                 </div>
