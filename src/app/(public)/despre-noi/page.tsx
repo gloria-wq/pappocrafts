@@ -35,7 +35,7 @@ export default async function AboutPage() {
         <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-russet-300 block mb-2.5">
           ✦ Despre PappoCrafts
         </span>
-        <h1 className="text-[clamp(36px,5vw,60px)] font-bold text-white leading-[1.08] max-w-2xl mx-auto text-center">
+        <h1 className="text-[clamp(36px,5vw,60px)] font-bold text-white leading-[1.08] w-full text-center">
           Povestea{" "}
           <em className="text-warm-300 not-italic">PappoCrafts</em>
         </h1>
