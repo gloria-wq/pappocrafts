@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { ShoppingCart, Menu, X, Moon, User } from "lucide-react";
+import { ShoppingCart, Menu, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 const NAV_LINKS = [
@@ -84,27 +84,6 @@ export default function Navigation() {
 
         {/* Right side icons */}
         <div className="flex items-center gap-1">
-          <button
-            className={`hidden md:flex p-2.5 rounded-full transition-all ${
-              scrolled
-                ? "text-navy-700 hover:text-russet-500 hover:bg-russet-50"
-                : "text-white/90 hover:bg-white/15 hover:text-white"
-            }`}
-            aria-label="Mod întunecat"
-          >
-            <Moon size={18} />
-          </button>
-          <Link
-            href="/admin"
-            className={`hidden md:flex p-2.5 rounded-full transition-all ${
-              scrolled
-                ? "text-navy-700 hover:text-russet-500 hover:bg-russet-50"
-                : "text-white/90 hover:bg-white/15 hover:text-white"
-            }`}
-            aria-label="Admin"
-          >
-            <User size={18} />
-          </Link>
           <Link
             href="/cos"
             className={`relative p-2.5 rounded-full transition-all ${
