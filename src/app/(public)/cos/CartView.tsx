@@ -69,7 +69,7 @@ export default function CartView() {
             <span className="text-sm text-navy-400 ml-1 font-[var(--font-body)]">RON</span>
           </div>
         </div>
-        <Link href="/checkout" className="block w-full py-[14px] bg-russet-500 text-white font-bold text-[14px] rounded-full text-center hover:bg-russet-600 transition-colors shadow-[0_6px_20px_rgba(162,110,115,0.3)]">
+        <Link href="/checkout" className="block w-full py-[14px] bg-russet-500 text-white font-bold text-[14px] rounded-full text-center hover:bg-russet-600 transition-colors shadow-[0_6px_20px_rgba(162,110,115,0.3)]" style={{ color: "#FDD2BC" }}>
           Finalizează comanda
         </Link>
         <Link href="/magazin" className="block mt-3 text-center text-[13px] text-russet-500 font-semibold hover:underline">
