@@ -182,8 +182,20 @@ export default async function HomePage() {
         <div className="max-w-[1200px] mx-auto px-7 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-[3/4] bg-warm-200/60 backdrop-blur-sm rounded-2xl border border-white/40" />
-              <div className="aspect-[3/4] bg-warm-300/40 backdrop-blur-sm rounded-2xl border border-white/40" />
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-white/40">
+                <img
+                  src="/images/story-1.png"
+                  alt="Meșter împletind coșuri din răchită"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-white/40">
+                <img
+                  src="/images/story-2.png"
+                  alt="Meșter lucrând cu răchită naturală"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
             <div className="absolute -bottom-5 -right-5 bg-russet-500 text-white rounded-2xl px-6 py-5 text-center shadow-[0_12px_40px_rgba(162,110,115,0.4)] z-10">
               <div className="text-[42px] font-bold leading-none font-[var(--font-heading)]">8+</div>
