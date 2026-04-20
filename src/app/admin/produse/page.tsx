@@ -239,10 +239,10 @@ export default function AdminProductsPage() {
 
       {/* Edit / Add modal */}
       {editing && (
-        <div className="fixed inset-0 bg-black/40 z-50 flex items-start justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl my-8">
-            {/* Modal header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-earth-100">
+        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl flex flex-col" style={{ maxHeight: "90vh" }}>
+            {/* Modal header — always visible */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-earth-100 shrink-0">
               <h3 className="font-semibold text-lg text-earth-900">
                 {editing.id ? "Editează produs" : "Adaugă produs nou"}
               </h3>
@@ -251,7 +251,8 @@ export default function AdminProductsPage() {
               </button>
             </div>
 
-            <div className="p-6 space-y-5">
+            {/* Scrollable content */}
+            <div className="p-6 space-y-5 overflow-y-auto flex-1">
               {/* ── Photos ── */}
               <ImageUploader
                 images={(editing.images as string[]) ?? []}
@@ -341,8 +342,8 @@ export default function AdminProductsPage() {
               </div>
             </div>
 
-            {/* Modal footer */}
-            <div className="flex gap-3 px-6 py-4 border-t border-earth-100">
+            {/* Modal footer — always visible */}
+            <div className="flex gap-3 px-6 py-4 border-t border-earth-100 shrink-0">
               <button
                 onClick={handleSave}
                 disabled={saving || !editing.name}
