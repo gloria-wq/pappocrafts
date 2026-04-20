@@ -8,14 +8,16 @@ import { ShoppingCart, Menu, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 const NAV_LINKS = [
+  { href: "/", label: "Acasă" },
   { href: "/magazin", label: "Colecție" },
   { href: "/produse", label: "Categorii" },
   { href: "/despre-noi", label: "Despre" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navigation() {
-  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   const { totalItems } = useCart();
   const pathname = usePathname();
 
@@ -29,23 +31,26 @@ export default function Navigation() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/90 backdrop-blur shadow-sm" : "bg-transparent"
+        scrolled
+          ? "bg-white/70 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
       }`}
     >
       <nav className="max-w-[1200px] mx-auto px-7 flex items-center justify-between h-[72px]">
-        {/* Logo */}
+
+        {/* Left: Logo */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
             src="/logo-transparent.png"
             alt="PappoCrafts"
             width={160}
             height={50}
-            className="h-[42px] w-auto object-contain transition-all duration-300"
+            className="h-[42px] w-auto object-contain"
             priority
           />
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Center: Nav links */}
         <div className="hidden md:flex items-center gap-0.5">
           {NAV_LINKS.map((l) => {
             const active = pathname === l.href;
@@ -69,8 +74,21 @@ export default function Navigation() {
           })}
         </div>
 
-        {/* Right side icons */}
-        <div className="flex items-center gap-1">
+        {/* Right: CTA + Cart */}
+        <div className="flex items-center gap-2">
+          {/* CTA button */}
+          <Link
+            href="/magazin"
+            className={`hidden md:inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-[13px] font-bold transition-all ${
+              scrolled
+                ? "bg-russet-500 text-white hover:bg-russet-600 shadow-[0_4px_12px_rgba(162,110,115,0.3)]"
+                : "bg-white/20 text-white border border-white/30 hover:bg-white/30 backdrop-blur-sm"
+            }`}
+          >
+            Cumpără acum
+          </Link>
+
+          {/* Cart */}
           <Link
             href="/cos"
             className={`relative p-2.5 rounded-full transition-all ${
@@ -86,6 +104,8 @@ export default function Navigation() {
               </span>
             )}
           </Link>
+
+          {/* Mobile hamburger */}
           <button
             onClick={() => setOpen(!open)}
             className={`md:hidden p-2.5 rounded-full transition-all ${
@@ -100,9 +120,9 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden bg-white border-t border-warm-200 shadow-lg">
+        <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-warm-200 shadow-lg">
           <div className="px-4 py-3 space-y-1">
             {NAV_LINKS.map((l) => (
               <Link
@@ -118,6 +138,15 @@ export default function Navigation() {
                 {l.label}
               </Link>
             ))}
+            <div className="pt-2 pb-1">
+              <Link
+                href="/magazin"
+                onClick={() => setOpen(false)}
+                className="block w-full text-center px-4 py-3 bg-russet-500 text-white rounded-xl text-sm font-bold hover:bg-russet-600 transition-colors"
+              >
+                Cumpără acum
+              </Link>
+            </div>
           </div>
         </div>
       )}
