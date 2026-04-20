@@ -12,11 +12,18 @@ export default async function CategoriesPage() {
 
   return (
     <>
-      <section className="bg-navy-700 pt-[120px] pb-16 px-7 text-center">
+      <section className="bg-navy-700 pt-[120px] pb-16 px-7 text-center overflow-hidden">
         <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-russet-300 block mb-2.5">
           ✦ Tradiție vie
         </span>
-        <h1 className="text-[clamp(32px,4.5vw,52px)] font-bold text-white">Categorii de Produse</h1>
+        <div className="marquee-track my-4">
+          <span
+            className="marquee-text text-[clamp(48px,7vw,80px)] font-bold leading-[1.08]"
+            style={{ color: "#FDD2BC", fontFamily: "var(--font-heading)" }}
+          >
+            Categorii de Produse&nbsp;&nbsp;✦&nbsp;&nbsp;Categorii de Produse&nbsp;&nbsp;✦&nbsp;&nbsp;
+          </span>
+        </div>
         <p className="text-warm-300/70 text-[15px] font-light mt-3 max-w-lg mx-auto">
           Materiale naturale, mâini dibace, meșteșug autentic transmis din generație în generație.
         </p>

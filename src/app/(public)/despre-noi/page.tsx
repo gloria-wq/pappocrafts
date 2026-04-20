@@ -1,4 +1,4 @@
-import { Quote, ChevronRight } from "lucide-react";
+import { Quote, ChevronRight, Trees, Zap, Leaf, Coffee, Shirt, Briefcase } from "lucide-react";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import { getArtisans } from "@/lib/get-data";
@@ -9,12 +9,12 @@ export const metadata = {
 };
 
 const MATERIALS = [
-  { icon: "🌳", name: "Lemn", detail: "Tei, fag, cireș, salcie, nuc" },
-  { icon: "🔔", name: "Cupru", detail: "Alimentar, 99,97% puritate" },
-  { icon: "🪶", name: "Răchită", detail: "Naturală, împletită manual" },
-  { icon: "🍵", name: "Ceramică", detail: "Corund, Horezu, lut ars" },
-  { icon: "🧵", name: "Textile", detail: "Bumbac, lână, țesături manuale" },
-  { icon: "💼", name: "Piele", detail: "Naturală, prelucrare artizanală" },
+  { icon: Trees,    name: "Lemn",     detail: "Tei, fag, cireș, salcie, nuc" },
+  { icon: Zap,      name: "Cupru",    detail: "Alimentar, 99,97% puritate" },
+  { icon: Leaf,     name: "Răchită",  detail: "Naturală, împletită manual" },
+  { icon: Coffee,   name: "Ceramică", detail: "Corund, Horezu, lut ars" },
+  { icon: Shirt,    name: "Textile",  detail: "Bumbac, lână, țesături manuale" },
+  { icon: Briefcase,name: "Piele",    detail: "Naturală, prelucrare artizanală" },
 ];
 
 const STEPS = [
@@ -89,7 +89,9 @@ export default async function AboutPage() {
           <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {MATERIALS.map((m) => (
               <div key={m.name} className="text-center bg-white rounded-2xl p-5 border border-warm-300/40">
-                <span className="text-3xl block mb-2">{m.icon}</span>
+                <div className="w-10 h-10 rounded-xl bg-russet-50 flex items-center justify-center mx-auto mb-2">
+                  <m.icon size={20} className="text-russet-500" />
+                </div>
                 <h4 className="font-semibold text-navy-700 text-sm">{m.name}</h4>
                 <p className="text-[11px] text-navy-400 mt-1 font-light">{m.detail}</p>
               </div>
