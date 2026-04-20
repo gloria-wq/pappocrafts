@@ -32,33 +32,27 @@ const ARTISANS = [
 const CARDS = [
   {
     icon: "/icons/responsible.png",
+    label: "responsible",
     title: "Tradiție meșteșugărească",
     desc: "Fiecare piesă este modelată manual, purtând secole de meșteșug românesc transmis din generație în generație.",
-    // Warm White #FDD2BC
-    iconFilter: "brightness(0) saturate(100%) invert(87%) sepia(26%) saturate(700%) hue-rotate(325deg) brightness(103%)",
-    titleColor: "#FDD2BC",
   },
   {
     icon: "/icons/natural.png",
+    label: "natural",
     title: "Materiale naturale",
     desc: "Lucrăm exclusiv cu lemn de tei, cupru de 99,97% puritate, răchită naturală și textile organice — nimic artificial.",
-    // Russet Brown #A26E73
-    iconFilter: "brightness(0) saturate(100%) invert(48%) sepia(28%) saturate(600%) hue-rotate(300deg) brightness(85%)",
-    titleColor: "#A26E73",
   },
   {
     icon: "/icons/handmade.png",
+    label: "handmade",
     title: "Făcut cu grijă",
     desc: "Fiecare obiect necesită ore, uneori zile de muncă. Acel timp și acea intenție se simt când ții în mâini o piesă PappoCrafts.",
-    // Turquoise #00BEC6
-    iconFilter: "brightness(0) saturate(100%) invert(67%) sepia(61%) saturate(556%) hue-rotate(149deg) brightness(92%)",
-    titleColor: "#00BEC6",
   },
 ];
 
 export default function ArtisansPage() {
   return (
-    <div style={{ fontFamily: "var(--font-blogger)" }}>
+    <>
       {/* ─── HERO ─── */}
       <section className="pt-[140px] pb-20 px-7 max-w-[860px] mx-auto">
         {/* Back link — left aligned */}
@@ -115,40 +109,32 @@ export default function ArtisansPage() {
 
       {/* ─── THREE CARDS ─── */}
       <section className="max-w-[1100px] mx-auto px-7 pb-28">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {CARDS.map((c) => (
             <div
               key={c.title}
-              className="flex flex-col items-center text-center"
+              className="bg-white/60 backdrop-blur-md rounded-2xl p-8 border border-white/50 hover:bg-white/75 hover:shadow-xl transition-all flex flex-col items-center text-center"
             >
-              {/* Icon — tinted via CSS filter, no background */}
-              <div className="mb-5 w-[96px] h-[96px] relative">
+              {/* Brand icon — mix-blend-mode:multiply removes the colored background */}
+              <div className="mb-5 w-[88px] h-[88px] relative">
                 <Image
                   src={c.icon}
-                  alt={c.title}
+                  alt={c.label}
                   fill
                   className="object-contain"
-                  style={{ filter: c.iconFilter }}
+                  style={{ mixBlendMode: "multiply" }}
                 />
               </div>
-
-              {/* Title in brand color */}
-              <h3
-                className="text-[18px] font-bold mb-3"
-                style={{ color: c.titleColor, fontFamily: "var(--font-blogger)" }}
-              >
-                {c.title}
-              </h3>
-
-              {/* Description in white */}
-              <p className="text-[14px] text-white leading-[1.8] font-light max-w-[280px]">
-                {c.desc}
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-russet-400 mb-2">
+                {c.label}
               </p>
+              <h3 className="text-[16px] font-bold text-navy-700 mb-3">{c.title}</h3>
+              <p className="text-[13px] text-navy-600 leading-[1.8] font-light">{c.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-14 text-center">
           <Link
             href="/magazin"
             className="inline-flex items-center gap-2 px-8 py-3.5 bg-russet-500 text-white font-semibold text-sm rounded-full hover:bg-russet-600 transition-all shadow-[0_6px_20px_rgba(162,110,115,0.35)]"
@@ -157,6 +143,6 @@ export default function ArtisansPage() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   );
 }
