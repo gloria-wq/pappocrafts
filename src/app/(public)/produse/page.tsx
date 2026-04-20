@@ -1,6 +1,27 @@
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import { getCategories } from "@/lib/get-data";
+import {
+  Trees,
+  Layers,
+  Hammer,
+  Gift,
+  Shirt,
+  FlaskConical,
+  Leaf,
+  Package,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+const CATEGORY_ICONS: Record<string, LucideIcon> = {
+  lemn: Trees,
+  rachita: Layers,
+  cupru: Hammer,
+  cadouri: Gift,
+  textile: Shirt,
+  ceramica: FlaskConical,
+  accesorii: Leaf,
+};
 
 export const metadata = {
   title: "Categorii",
@@ -30,22 +51,27 @@ export default async function CategoriesPage() {
       </section>
       <div className="max-w-[1200px] mx-auto px-7 py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {categories.map((cat) => (
-            <Link
-              key={cat.id}
-              href={`/produse/${cat.slug}`}
-              className="group bg-white rounded-2xl p-8 border border-warm-300/40 hover:border-russet-300 hover:shadow-lg transition-all text-center"
-            >
-              <span className="text-4xl block mb-4">{cat.icon ?? "📦"}</span>
-              <h3 className="text-[15px] font-semibold text-navy-700 group-hover:text-russet-500 transition-colors">
-                {cat.name}
-              </h3>
-              <p className="text-[12px] text-navy-400 mt-2 font-light">{cat.description}</p>
-              <span className="inline-block mt-4 text-[13px] text-russet-500 font-semibold">
-                Explorează &rarr;
-              </span>
-            </Link>
-          ))}
+          {categories.map((cat) => {
+            const Icon = CATEGORY_ICONS[cat.slug] ?? Package;
+            return (
+              <Link
+                key={cat.id}
+                href={`/produse/${cat.slug}`}
+                className="group bg-white rounded-2xl p-8 border border-warm-300/40 hover:border-russet-300 hover:shadow-lg transition-all text-center"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-russet-50 flex items-center justify-center mx-auto mb-4 group-hover:bg-russet-100 transition-colors">
+                  <Icon size={28} className="text-russet-500" />
+                </div>
+                <h3 className="text-[15px] font-semibold text-navy-700 group-hover:text-russet-500 transition-colors">
+                  {cat.name}
+                </h3>
+                <p className="text-[12px] text-navy-400 mt-2 font-light">{cat.description}</p>
+                <span className="inline-block mt-4 text-[13px] text-russet-500 font-semibold">
+                  Explorează &rarr;
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </>
