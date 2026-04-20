@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "*.supabase.co",
       },
+      {
+        protocol: "https",
+        hostname: "pappocrafts.ro",
+      },
+      {
+        protocol: "http",
+        hostname: "pappocrafts.ro",
+      },
     ],
   },
   async headers() {
