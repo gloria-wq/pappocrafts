@@ -41,7 +41,7 @@ export default function Navigation() {
         {/* Left: Logo */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/logo-transparent.png"
+            src={scrolled ? "/logo-color.png" : "/logo-white.png"}
             alt="PappoCrafts"
             width={160}
             height={50}
